@@ -71,6 +71,118 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-从0搭建计算机" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/%E4%BB%8E0%E6%90%AD%E5%BB%BA%E8%AE%A1%E7%AE%97%E6%9C%BA/" class="article-date">
+  <time class="dt-published" datetime="2025-03-03T07:26:17.000Z" itemprop="datePublished">2025-03-03</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/%E4%BB%8E0%E6%90%AD%E5%BB%BA%E8%AE%A1%E7%AE%97%E6%9C%BA/">从0搭建计算机</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="1-什么是四相复用器"><a href="#1-什么是四相复用器" class="headerlink" title="1.什么是四相复用器"></a>1.什么是四相复用器</h1><h2 id="1-基本概念"><a href="#1-基本概念" class="headerlink" title="1. 基本概念"></a>1. 基本概念</h2><ul>
+<li><strong>相位复用（Phase Division Multiplexing, PDM）</strong><br>将四路独立信号调制到同一载波的不同相位上（如0°、90°、180°、270°），每相位对应一个独立信道。</li>
+<li><strong>核心原理</strong>  <ul>
+<li><strong>发送端</strong>：四路信号分别调制到不同相位的载波。</li>
+<li><strong>接收端</strong>：通过相位检测分离并恢复原始信号。</li>
+</ul>
+</li>
+</ul>
+<p><img src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20250303153358738.png" alt="image-20250303153358738"></p>
+<h2 id="2-技术实现"><a href="#2-技术实现" class="headerlink" title="2. 技术实现"></a>2. 技术实现</h2><ul>
+<li><strong>调制方式</strong>  <ul>
+<li>常与**QPSK（四相相移键控）**结合，每个符号可携带2比特信息。</li>
+<li>可能扩展为四路独立信号复用（如更高阶调制）。</li>
+</ul>
+</li>
+<li><strong>正交性设计</strong>  <ul>
+<li>利用相位正交性（如0°与90°正交）降低信号干扰。</li>
+<li>类似IQ调制的**同相（I）<strong>和</strong>正交（Q）**分量分离技术。</li>
+</ul>
+</li>
+</ul>
+<h2 id="3-应用场景"><a href="#3-应用场景" class="headerlink" title="3. 应用场景"></a>3. 应用场景</h2><ul>
+<li><strong>高带宽效率场景</strong>  <ul>
+<li>卫星通信、光纤通信等带宽受限场景。</li>
+<li>5G、Wi-Fi等高频谱效率数字系统。</li>
+</ul>
+</li>
+<li><strong>组合复用技术</strong><br>与时分复用（TDM）、频分复用（FDM）结合使用。</li>
+</ul>
+<h2 id="4-挑战与要求"><a href="#4-挑战与要求" class="headerlink" title="4. 挑战与要求"></a>4. 挑战与要求</h2><ul>
+<li><strong>相位同步</strong>  <ul>
+<li>需高精度同步载波相位，依赖**锁相环（PLL）**技术。</li>
+</ul>
+</li>
+<li><strong>抗干扰能力</strong>  <ul>
+<li>对相位噪声敏感，需结合<strong>纠错编码</strong>（如LDPC）和<strong>均衡技术</strong>。</li>
+<li>多径效应需通过信道均衡解决。</li>
+</ul>
+</li>
+</ul>
+<h2 id="5-与类似技术对比"><a href="#5-与类似技术对比" class="headerlink" title="5. 与类似技术对比"></a>5. 与类似技术对比</h2><table>
+<thead>
+<tr>
+<th>技术</th>
+<th>特点</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>QPSK</strong></td>
+<td>单符号传2比特，侧重符号效率；四相复用侧重多路独立信号传输。</td>
+</tr>
+<tr>
+<td><strong>TDM&#x2F;FDM</strong></td>
+<td>利用时间&#x2F;频率分割；四相复用利用相位维度，属空分复用的一种。</td>
+</tr>
+<tr>
+<td><strong>MIMO</strong></td>
+<td>现代系统常结合MIMO技术增强容量，四相复用可与其协同提升频谱利用率。</td>
+</tr>
+</tbody></table>
+<h2 id="6-历史与演进"><a href="#6-历史与演进" class="headerlink" title="6. 历史与演进"></a>6. 历史与演进</h2><ul>
+<li><strong>早期应用</strong><br>模拟通信时代用于多路电话传输，现多被数字技术替代。</li>
+<li><strong>现代发展</strong>  <ul>
+<li>结合**软件定义无线电（SDR）**实现灵活配置。</li>
+<li>在雷达、专业无线电等场景中仍有特定应用。</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><ul>
+<li><strong>核心价值</strong>：通过相位维度提升频谱利用率，适用于高容量通信系统。</li>
+<li><strong>技术趋势</strong>：与数字信号处理、MIMO等技术融合，增强抗干扰能力和灵活性。</li>
+<li><strong>挑战</strong>：同步精度和噪声抑制是关键，需持续优化算法与硬件设计。</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/%E4%BB%8E0%E6%90%AD%E5%BB%BA%E8%AE%A1%E7%AE%97%E6%9C%BA/" data-id="cm7sqxdo20000c4vvckqyhzev" data-title="从0搭建计算机" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-博客网站管理" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/%E5%8D%9A%E5%AE%A2%E7%BD%91%E7%AB%99%E7%AE%A1%E7%90%86/" class="article-date">
@@ -236,7 +348,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/%E5%8D%9A%E5%AE%A2%E7%BD%91%E7%AB%99%E7%AE%A1%E7%90%86/" data-id="cm7q0ltd60001w8vv51o081mc" data-title="博客网站管理" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      <a data-url="http://example.com/%E5%8D%9A%E5%AE%A2%E7%BD%91%E7%AB%99%E7%AE%A1%E7%90%86/" data-id="cm7sqxdog0002c4vv3467fkkz" data-title="博客网站管理" class="article-share-link"><span class="fa fa-share">分享</span></a>
       
       
       
@@ -274,7 +386,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/%E5%8D%9A%E5%AE%A2%E4%BB%8B%E7%BB%8D/" data-id="cm7q0ltd10000w8vv0gqd8lnz" data-title="博客介绍" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      <a data-url="http://example.com/%E5%8D%9A%E5%AE%A2%E4%BB%8B%E7%BB%8D/" data-id="cm7sqxdo60001c4vvesty6p08" data-title="博客介绍" class="article-share-link"><span class="fa fa-share">分享</span></a>
       
       
       
@@ -315,6 +427,10 @@
     <h3 class="widget-title">最新文章</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/%E4%BB%8E0%E6%90%AD%E5%BB%BA%E8%AE%A1%E7%AE%97%E6%9C%BA/">从0搭建计算机</a>
+          </li>
         
           <li>
             <a href="/%E5%8D%9A%E5%AE%A2%E7%BD%91%E7%AB%99%E7%AE%A1%E7%90%86/">博客网站管理</a>
