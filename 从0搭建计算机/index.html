@@ -14,8 +14,11 @@
 <meta property="og:description" content="1.什么是四相复用器1. 基本概念 相位复用（Phase Division Multiplexing, PDM）将四路独立信号调制到同一载波的不同相位上（如0°、90°、180°、270°），每相位对应一个独立信道。 核心原理   发送端：四路信号分别调制到不同相位的载波。 接收端：通过相位检测分离并恢复原始信号。     2. 技术实现 调制方式   常与**QPSK（四相相移键控）**结合，每">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="c:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20250303153358738.png">
+<meta property="og:image" content="c:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20250303154339418.png">
+<meta property="og:image" content="c:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20250303161733527.png">
+<meta property="og:image" content="c:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20250303165414765.png">
 <meta property="article:published_time" content="2025-03-03T07:26:17.000Z">
-<meta property="article:modified_time" content="2025-03-03T07:34:05.437Z">
+<meta property="article:modified_time" content="2025-03-03T08:55:46.859Z">
 <meta property="article:author" content="刘永康">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="c:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20250303153358738.png">
@@ -171,11 +174,25 @@
 <li><strong>技术趋势</strong>：与数字信号处理、MIMO等技术融合，增强抗干扰能力和灵活性。</li>
 <li><strong>挑战</strong>：同步精度和噪声抑制是关键，需持续优化算法与硬件设计。</li>
 </ul>
+<h1 id="2-十六位ALU的实现"><a href="#2-十六位ALU的实现" class="headerlink" title="2.十六位ALU的实现"></a>2.十六位ALU的实现</h1><p><img src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20250303154339418.png" alt="image-20250303154339418"></p>
+<p>该电路求A,B两数加，减，按位与，按位或，最终输出取决于sel.</p>
+<p><strong>Cin,Cout</strong>是输入输出的进位标志</p>
+<p><strong>ZF</strong>是A,B是否相等的标志。</p>
+<p>其中将A,B,Cin,加法器，减法器，与门，或门，比较器，S设为16位，sel位2位。<strong>即可得到16位的ALU</strong></p>
+<p>**小提示：**如果不知道某个逻辑单元是多少位的，可以查看它对应提示，根据前后的位数，进行推导。</p>
+<h1 id="3-实现一个简单的计算单元"><a href="#3-实现一个简单的计算单元" class="headerlink" title="3.实现一个简单的计算单元"></a>3.实现一个简单的计算单元</h1><h2 id="3-1可以用刚创建的ALU来实现"><a href="#3-1可以用刚创建的ALU来实现" class="headerlink" title="3.1可以用刚创建的ALU来实现"></a>3.1可以用刚创建的ALU来实现</h2><p><img src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20250303161733527.png" alt="image-20250303161733527"></p>
+<p>第一步：计算A+B;</p>
+<p>第二步：将S结果记录下来，并且输入到A，在接着加B得到新的S。</p>
+<p>第三部：重复第二步的过程。</p>
+<h3 id="缺点："><a href="#缺点：" class="headerlink" title="缺点："></a>缺点：</h3><p><strong>每次都需要手动记录S运算的结果</strong></p>
+<p>可以通过添加 <strong>存储功能</strong>解决人工记录问题</p>
+<p><img src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20250303165414765.png" alt="image-20250303165414765"></p>
+<p><strong>Reg</strong>是寄存器（16位）。添加的输入输出也是16位。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/%E4%BB%8E0%E6%90%AD%E5%BB%BA%E8%AE%A1%E7%AE%97%E6%9C%BA/" data-id="cm7sqxdo20000c4vvckqyhzev" data-title="从0搭建计算机" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      <a data-url="http://example.com/%E4%BB%8E0%E6%90%AD%E5%BB%BA%E8%AE%A1%E7%AE%97%E6%9C%BA/" data-id="cm7sts5z600024gvv3x9p3dg5" data-title="从0搭建计算机" class="article-share-link"><span class="fa fa-share">分享</span></a>
       
       
       
