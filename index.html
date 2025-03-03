@@ -101,7 +101,7 @@
 </ul>
 </li>
 </ul>
-<p><img src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20250303153358738.png" alt="image-20250303153358738"></p>
+<p><img src="C:\Users\Administrator\myblog\source\typora-user-images\image-20250303153358738.png" alt="image-20250303153358738"></p>
 <h2 id="2-技术实现"><a href="#2-技术实现" class="headerlink" title="2. 技术实现"></a>2. 技术实现</h2><ul>
 <li><strong>调制方式</strong>  <ul>
 <li>常与**QPSK（四相相移键控）**结合，每个符号可携带2比特信息。</li>
@@ -167,25 +167,25 @@
 <li><strong>技术趋势</strong>：与数字信号处理、MIMO等技术融合，增强抗干扰能力和灵活性。</li>
 <li><strong>挑战</strong>：同步精度和噪声抑制是关键，需持续优化算法与硬件设计。</li>
 </ul>
-<h1 id="2-十六位ALU的实现"><a href="#2-十六位ALU的实现" class="headerlink" title="2.十六位ALU的实现"></a>2.十六位ALU的实现</h1><p><img src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20250303154339418.png" alt="image-20250303154339418"></p>
+<h1 id="2-十六位ALU的实现"><a href="#2-十六位ALU的实现" class="headerlink" title="2.十六位ALU的实现"></a>2.十六位ALU的实现</h1><p><img src="C:\Users\Administrator\myblog\source\typora-user-images\image-20250303154339418.png" alt="image-20250303154339418"></p>
 <p>该电路求A,B两数加，减，按位与，按位或，最终输出取决于sel.</p>
 <p><strong>Cin,Cout</strong>是输入输出的进位标志</p>
 <p><strong>ZF</strong>是A,B是否相等的标志。</p>
 <p>其中将A,B,Cin,加法器，减法器，与门，或门，比较器，S设为16位，sel位2位。<strong>即可得到16位的ALU</strong></p>
 <p>**小提示：**如果不知道某个逻辑单元是多少位的，可以查看它对应提示，根据前后的位数，进行推导。</p>
-<h1 id="3-实现一个简单的计算单元"><a href="#3-实现一个简单的计算单元" class="headerlink" title="3.实现一个简单的计算单元"></a>3.实现一个简单的计算单元</h1><h2 id="3-1可以用刚创建的ALU来实现"><a href="#3-1可以用刚创建的ALU来实现" class="headerlink" title="3.1可以用刚创建的ALU来实现"></a>3.1可以用刚创建的ALU来实现</h2><p><img src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20250303161733527.png" alt="image-20250303161733527"></p>
+<h1 id="3-实现一个简单的计算单元"><a href="#3-实现一个简单的计算单元" class="headerlink" title="3.实现一个简单的计算单元"></a>3.实现一个简单的计算单元</h1><h2 id="3-1可以用刚创建的ALU来实现"><a href="#3-1可以用刚创建的ALU来实现" class="headerlink" title="3.1可以用刚创建的ALU来实现"></a>3.1可以用刚创建的ALU来实现</h2><p><img src="C:\Users\Administrator\myblog\source\typora-user-images\image-20250303161733527.png" alt="image-20250303161733527"></p>
 <p>第一步：计算A+B;</p>
 <p>第二步：将S结果记录下来，并且输入到A，在接着加B得到新的S。</p>
 <p>第三部：重复第二步的过程。</p>
 <h3 id="缺点："><a href="#缺点：" class="headerlink" title="缺点："></a>缺点：</h3><p><strong>每次都需要手动记录S运算的结果</strong></p>
 <p>可以通过添加 <strong>存储功能</strong>解决人工记录问题</p>
-<p><img src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20250303165414765.png" alt="image-20250303165414765"></p>
+<p><img src="C:\Users\Administrator\myblog\source\typora-user-images\image-20250303165414765.png" alt="image-20250303165414765"></p>
 <p><strong>Reg</strong>是寄存器（16位）。添加的输入输出也是16位。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/%E4%BB%8E0%E6%90%AD%E5%BB%BA%E8%AE%A1%E7%AE%97%E6%9C%BA/" data-id="cm7sts5z600024gvv3x9p3dg5" data-title="从0搭建计算机" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      <a data-url="http://example.com/%E4%BB%8E0%E6%90%AD%E5%BB%BA%E8%AE%A1%E7%AE%97%E6%9C%BA/" data-id="cm7su9f4j000054vv2syp4a2z" data-title="从0搭建计算机" class="article-share-link"><span class="fa fa-share">分享</span></a>
       
       
       
@@ -362,7 +362,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/%E5%8D%9A%E5%AE%A2%E7%BD%91%E7%AB%99%E7%AE%A1%E7%90%86/" data-id="cm7sts5z400014gvv2lo9ggdj" data-title="博客网站管理" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      <a data-url="http://example.com/%E5%8D%9A%E5%AE%A2%E7%BD%91%E7%AB%99%E7%AE%A1%E7%90%86/" data-id="cm7su9f4p000254vvgfzz4au7" data-title="博客网站管理" class="article-share-link"><span class="fa fa-share">分享</span></a>
       
       
       
@@ -400,7 +400,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/%E5%8D%9A%E5%AE%A2%E4%BB%8B%E7%BB%8D/" data-id="cm7sts5yw00004gvv5ctr4xa9" data-title="博客介绍" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      <a data-url="http://example.com/%E5%8D%9A%E5%AE%A2%E4%BB%8B%E7%BB%8D/" data-id="cm7su9f4o000154vvc72q5dzs" data-title="博客介绍" class="article-share-link"><span class="fa fa-share">分享</span></a>
       
       
       
