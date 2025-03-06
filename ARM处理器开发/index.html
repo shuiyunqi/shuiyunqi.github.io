@@ -4,13 +4,17 @@
   <meta charset="utf-8">
   
   
-  <title>水云起的博客</title>
+  <title>ARM处理器开发 | 水云起的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="水云起的博客">
-<meta property="og:url" content="http://example.com/index.html">
+  <meta name="description" content="一、嵌入式系统1. 概念嵌入式系统是一种专门为特定应用而设计的计算机系统，它以应用为核心，依托计算机技术构建，并且其硬件和软件部分都能够根据实际需求进行裁剪。它并非像通用计算机那样具备广泛的通用性，而是深度嵌入到其他设备之中，致力于实现特定的功能。例如常见的智能手环，其内部的嵌入式系统专注于运动数据监测、心率测量以及信息提醒等功能，为用户提供便捷的健康与生活辅助服务。 2. 三要素 专用性：  嵌">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ARM处理器开发">
+<meta property="og:url" content="http://example.com/ARM%E5%A4%84%E7%90%86%E5%99%A8%E5%BC%80%E5%8F%91/index.html">
 <meta property="og:site_name" content="水云起的博客">
+<meta property="og:description" content="一、嵌入式系统1. 概念嵌入式系统是一种专门为特定应用而设计的计算机系统，它以应用为核心，依托计算机技术构建，并且其硬件和软件部分都能够根据实际需求进行裁剪。它并非像通用计算机那样具备广泛的通用性，而是深度嵌入到其他设备之中，致力于实现特定的功能。例如常见的智能手环，其内部的嵌入式系统专注于运动数据监测、心率测量以及信息提醒等功能，为用户提供便捷的健康与生活辅助服务。 2. 三要素 专用性：  嵌">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2025-03-06T02:05:51.000Z">
+<meta property="article:modified_time" content="2025-03-06T02:17:45.376Z">
 <meta property="article:author" content="刘永康">
 <meta name="twitter:card" content="summary">
   
@@ -69,9 +73,7 @@
 </header>
 
       <div class="outer">
-        <section id="main">
-  
-    <article id="post-ARM处理器开发" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+        <section id="main"><article id="post-ARM处理器开发" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/ARM%E5%A4%84%E7%90%86%E5%99%A8%E5%BC%80%E5%8F%91/" class="article-date">
   <time class="dt-published" datetime="2025-03-06T02:05:51.000Z" itemprop="datePublished">2025-03-06</time>
@@ -84,8 +86,8 @@
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/ARM%E5%A4%84%E7%90%86%E5%99%A8%E5%BC%80%E5%8F%91/">ARM处理器开发</a>
+    <h1 class="p-name article-title" itemprop="headline name">
+      ARM处理器开发
     </h1>
   
 
@@ -363,388 +365,19 @@
     </footer>
   </div>
   
-</article>
-
-
-
+    
+<nav id="article-nav">
   
-    <article id="post-从0搭建计算机" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/%E4%BB%8E0%E6%90%AD%E5%BB%BA%E8%AE%A1%E7%AE%97%E6%9C%BA/" class="article-date">
-  <time class="dt-published" datetime="2025-03-03T07:26:17.000Z" itemprop="datePublished">2025-03-03</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/%E4%BB%8E0%E6%90%AD%E5%BB%BA%E8%AE%A1%E7%AE%97%E6%9C%BA/">从0搭建计算机</a>
-    </h1>
+    <a href="/%E4%BB%8E0%E6%90%AD%E5%BB%BA%E8%AE%A1%E7%AE%97%E6%9C%BA/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">后一篇</strong>
+      <div class="article-nav-title">从0搭建计算机</div>
+    </a>
   
+</nav>
 
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h1 id="1-什么是四相复用器"><a href="#1-什么是四相复用器" class="headerlink" title="1.什么是四相复用器"></a>1.什么是四相复用器</h1><h2 id="1-基本概念"><a href="#1-基本概念" class="headerlink" title="1. 基本概念"></a>1. 基本概念</h2><ul>
-<li><strong>相位复用（Phase Division Multiplexing, PDM）</strong><br>将四路独立信号调制到同一载波的不同相位上（如0°、90°、180°、270°），每相位对应一个独立信道。</li>
-<li><strong>核心原理</strong>  <ul>
-<li><strong>发送端</strong>：四路信号分别调制到不同相位的载波。</li>
-<li><strong>接收端</strong>：通过相位检测分离并恢复原始信号。</li>
-</ul>
-</li>
-</ul>
-<p><img src="C:\Users\Administrator\myblog\source\typora-user-images\image-20250303153311683.png"></p>
-<h2 id="2-技术实现"><a href="#2-技术实现" class="headerlink" title="2. 技术实现"></a>2. 技术实现</h2><ul>
-<li><strong>调制方式</strong>  <ul>
-<li>常与**QPSK（四相相移键控）**结合，每个符号可携带2比特信息。</li>
-<li>可能扩展为四路独立信号复用（如更高阶调制）。</li>
-</ul>
-</li>
-<li><strong>正交性设计</strong>  <ul>
-<li>利用相位正交性（如0°与90°正交）降低信号干扰。</li>
-<li>类似IQ调制的**同相（I）<strong>和</strong>正交（Q）**分量分离技术。</li>
-</ul>
-</li>
-</ul>
-<h2 id="3-应用场景"><a href="#3-应用场景" class="headerlink" title="3. 应用场景"></a>3. 应用场景</h2><ul>
-<li><strong>高带宽效率场景</strong>  <ul>
-<li>卫星通信、光纤通信等带宽受限场景。</li>
-<li>5G、Wi-Fi等高频谱效率数字系统。</li>
-</ul>
-</li>
-<li><strong>组合复用技术</strong><br>与时分复用（TDM）、频分复用（FDM）结合使用。</li>
-</ul>
-<h2 id="4-挑战与要求"><a href="#4-挑战与要求" class="headerlink" title="4. 挑战与要求"></a>4. 挑战与要求</h2><ul>
-<li><strong>相位同步</strong>  <ul>
-<li>需高精度同步载波相位，依赖**锁相环（PLL）**技术。</li>
-</ul>
-</li>
-<li><strong>抗干扰能力</strong>  <ul>
-<li>对相位噪声敏感，需结合<strong>纠错编码</strong>（如LDPC）和<strong>均衡技术</strong>。</li>
-<li>多径效应需通过信道均衡解决。</li>
-</ul>
-</li>
-</ul>
-<h2 id="5-与类似技术对比"><a href="#5-与类似技术对比" class="headerlink" title="5. 与类似技术对比"></a>5. 与类似技术对比</h2><table>
-<thead>
-<tr>
-<th>技术</th>
-<th>特点</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><strong>QPSK</strong></td>
-<td>单符号传2比特，侧重符号效率；四相复用侧重多路独立信号传输。</td>
-</tr>
-<tr>
-<td><strong>TDM&#x2F;FDM</strong></td>
-<td>利用时间&#x2F;频率分割；四相复用利用相位维度，属空分复用的一种。</td>
-</tr>
-<tr>
-<td><strong>MIMO</strong></td>
-<td>现代系统常结合MIMO技术增强容量，四相复用可与其协同提升频谱利用率。</td>
-</tr>
-</tbody></table>
-<h2 id="6-历史与演进"><a href="#6-历史与演进" class="headerlink" title="6. 历史与演进"></a>6. 历史与演进</h2><ul>
-<li><strong>早期应用</strong><br>模拟通信时代用于多路电话传输，现多被数字技术替代。</li>
-<li><strong>现代发展</strong>  <ul>
-<li>结合**软件定义无线电（SDR）**实现灵活配置。</li>
-<li>在雷达、专业无线电等场景中仍有特定应用。</li>
-</ul>
-</li>
-</ul>
-<hr>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><ul>
-<li><strong>核心价值</strong>：通过相位维度提升频谱利用率，适用于高容量通信系统。</li>
-<li><strong>技术趋势</strong>：与数字信号处理、MIMO等技术融合，增强抗干扰能力和灵活性。</li>
-<li><strong>挑战</strong>：同步精度和噪声抑制是关键，需持续优化算法与硬件设计。</li>
-</ul>
-<h1 id="2-十六位ALU的实现"><a href="#2-十六位ALU的实现" class="headerlink" title="2.十六位ALU的实现"></a>2.十六位ALU的实现</h1><p><img src="C:\Users\Administrator\myblog\source\typora-user-images\image-20250303154339418.png" alt="image-20250303154339418"></p>
-<p>该电路求A,B两数加，减，按位与，按位或，最终输出取决于sel.</p>
-<p><strong>Cin,Cout</strong>是输入输出的进位标志</p>
-<p><strong>ZF</strong>是A,B是否相等的标志。</p>
-<p>其中将A,B,Cin,加法器，减法器，与门，或门，比较器，S设为16位，sel位2位。<strong>即可得到16位的ALU</strong></p>
-<p>**小提示：**如果不知道某个逻辑单元是多少位的，可以查看它对应提示，根据前后的位数，进行推导。</p>
-<h1 id="3-实现一个简单的计算单元"><a href="#3-实现一个简单的计算单元" class="headerlink" title="3.实现一个简单的计算单元"></a>3.实现一个简单的计算单元</h1><h2 id="3-1可以用刚创建的ALU来实现"><a href="#3-1可以用刚创建的ALU来实现" class="headerlink" title="3.1可以用刚创建的ALU来实现"></a>3.1可以用刚创建的ALU来实现</h2><p><img src="C:\Users\Administrator\myblog\source\typora-user-images\image-20250303161733527.png" alt="image-20250303161733527"></p>
-<p>第一步：计算A+B;</p>
-<p>第二步：将S结果记录下来，并且输入到A，在接着加B得到新的S。</p>
-<p>第三部：重复第二步的过程。</p>
-<h3 id="缺点："><a href="#缺点：" class="headerlink" title="缺点："></a>缺点：</h3><p><strong>每次都需要手动记录S运算的结果</strong></p>
-<h2 id="3-2可以通过添加-存储功能解决人工记录问题"><a href="#3-2可以通过添加-存储功能解决人工记录问题" class="headerlink" title="3.2可以通过添加 存储功能解决人工记录问题"></a>3.2可以通过添加 存储功能解决人工记录问题</h2><p><img src="C:\Users\Administrator\myblog\source\typora-user-images\image-20250303165414765.png" alt="image-20250303165414765"></p>
-<p><strong>Reg</strong>是寄存器（16位）。添加的输入输出也是16位。</p>
-<p>与 sel 连接的常量设置为 2bit，值为 0，表示我们暂时只算加法。</p>
-<p>接下来尝试计算13+45+27+6</p>
-<p>开启仿真后，执行如下步骤：</p>
-<blockquote>
-<p>B 输入 13，拍下按钮。</p>
-<p>B 输入 45，拍下按钮。</p>
-<p>B 输入 27，拍下按钮。 </p>
-<p>B 输入 6，拍下按钮。</p>
-</blockquote>
-<p>最终可以看到寄存器输出显示 91。</p>
-<p><strong>拍按钮的动作模拟的是计算机中的时钟信号。时钟信号就是计算机电路中的节拍器，由</strong></p>
-<p><strong>晶振统一产生，CPU 的计算就是以时钟信号为单位进行的，时钟信号频率越高，CPU 计算</strong></p>
-<p><strong>速度越快，但相对的单位时间内电路中的电流就越大，发热也越大，这也是现实中限制</strong></p>
-<p><strong>CPU 提升频率的一个重要因素。</strong></p>
-<h3 id="缺点：-1"><a href="#缺点：-1" class="headerlink" title="缺点："></a>缺点：</h3><p>累加过程的数据完全用手动输入的。</p>
-<h2 id="3-3添加一块数据存储（寄存器实现内存）"><a href="#3-3添加一块数据存储（寄存器实现内存）" class="headerlink" title="3.3添加一块数据存储（寄存器实现内存）"></a>3.3添加一块数据存储（寄存器实现内存）</h2><p>添加 8 个寄存器（16bit），并给每个寄存器编号（地址），通过地址操作对应的寄存器存取</p>
-<p>数据。8个寄存器就要有8个寄存器的地址，可以用3位数据来控制。（三八译码器）</p>
-<p><img src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20250303234726698.png" alt="image-20250303234726698"></p>
-<p>可以通过复用器控制哪个寄存器输出，但是我们需要一个选择器帮我们选择输入的寄存器。这个选择器应该是 3bit 输入，8bit 输出</p>
-<p><img src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20250303234846861.png" alt="image-20250303234846861"></p>
-<p><img src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20250303234909699.png" alt="image-20250303234909699"></p>
-<h3 id="缺点：-2"><a href="#缺点：-2" class="headerlink" title="缺点："></a>缺点：</h3><p>成本高。为了之后编程方便，我们选择封装好的 EEPROM</p>
-<p><img src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20250303235036033.png" alt="image-20250303235036033"></p>
-<h2 id="3-4-PC-程序计数器"><a href="#3-4-PC-程序计数器" class="headerlink" title="3.4  PC(程序计数器)"></a>3.4  PC(程序计数器)</h2><p>计数器的电路比较简单，就是一个寄存器拼一个加法器</p>
-<p>因为要完成 4 个数的累加，我们使用一个 2 位加法器，并且设置 Cin 始终为 0。加法器</p>
-<p>的一个输入恒为 1，另一个输入是寄存器的输出，也就是说加法器完成的功能就是将寄存</p>
-<p>器的输出加 1。而加法器的输出又作为寄存器的输入，每当时钟信号上升沿到来的时候都</p>
-<p>把累加的结果存储在该寄存器中。</p>
-<p><img src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20250303235837709.png" alt="image-20250303235837709"></p>
-<p>初始情况下我们只需要将寄存器清零，然后每次时钟信号上升沿到来后，</p>
-<p>寄存器的输出都会自动加 1</p>
-<p><img src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20250303235939566.png" alt="image-20250303235939566"></p>
-<h2 id="3-5添加-halt-信号"><a href="#3-5添加-halt-信号" class="headerlink" title="3.5添加 halt 信号"></a>3.5添加 halt 信号</h2><p><img src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20250304000123985.png" alt="image-20250304000123985"></p>
-<p>希望程序能够在PC计数器输出为3时终止。因此，加入一个halt终止信号</p>
-<p><img src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20250304000209478.png" alt="image-20250304000209478"></p>
-<p>如何判断 PC 计数器的值为 3 呢？可以通过一个比较器来实现</p>
-<p><img src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20250304000240687.png" alt="image-20250304000240687"></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/%E4%BB%8E0%E6%90%AD%E5%BB%BA%E8%AE%A1%E7%AE%97%E6%9C%BA/" data-id="cm7wpxmnb0002lwvv3msq4476" data-title="从0搭建计算机" class="article-share-link"><span class="fa fa-share">分享</span></a>
-      
-      
-      
-    </footer>
-  </div>
   
 </article>
-
-
-
-  
-    <article id="post-博客网站管理" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/%E5%8D%9A%E5%AE%A2%E7%BD%91%E7%AB%99%E7%AE%A1%E7%90%86/" class="article-date">
-  <time class="dt-published" datetime="2025-03-01T03:15:21.000Z" itemprop="datePublished">2025-03-01</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/%E5%8D%9A%E5%AE%A2%E7%BD%91%E7%AB%99%E7%AE%A1%E7%90%86/">博客网站管理</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h3 id="一、内容管理"><a href="#一、内容管理" class="headerlink" title="一、内容管理"></a>一、内容管理</h3><h4 id="1-写新文章"><a href="#1-写新文章" class="headerlink" title="1. 写新文章"></a>1. <strong>写新文章</strong></h4><ul>
-<li><p><strong>命令：</strong></p>
-<p>bash</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new <span class="string">&quot;文章标题&quot;</span>  <span class="comment"># 在 source/_posts 生成 Markdown 文件</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p><strong>格式：</strong></p>
-<p>Markdown 文件头部需包含 YAML 元数据，例如：</p>
-<p>markdown</p>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">title: 文章标题</span><br><span class="line">date: 2023-10-01 15:30:00</span><br><span class="line">tags: [Hexo, GitHub]</span><br><span class="line"><span class="section">categories: 教程</span></span><br><span class="line"><span class="section">---</span></span><br></pre></td></tr></table></figure></li>
-</ul>
-<h4 id="2-草稿管理"><a href="#2-草稿管理" class="headerlink" title="2. 草稿管理"></a>2. <strong>草稿管理</strong></h4><ul>
-<li><p>创建草稿：</p>
-<p>bash</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new draft <span class="string">&quot;草稿标题&quot;</span>  <span class="comment"># 生成到 source/_drafts</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>发布草稿：</p>
-<p>bash</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo publish <span class="string">&quot;草稿标题&quot;</span>  <span class="comment"># 移动到 _posts</span></span><br></pre></td></tr></table></figure></li>
-</ul>
-<h4 id="3-页面管理"><a href="#3-页面管理" class="headerlink" title="3. 页面管理"></a>3. <strong>页面管理</strong></h4><ul>
-<li><p>创建自定义页面（如 About 页面）：</p>
-<p>bash</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new page <span class="string">&quot;about&quot;</span>  <span class="comment"># 生成到 source/about/index.md</span></span><br></pre></td></tr></table></figure></li>
-</ul>
-<hr>
-<h3 id="二、本地调试与生成"><a href="#二、本地调试与生成" class="headerlink" title="二、本地调试与生成"></a>二、本地调试与生成</h3><ol>
-<li><p><strong>启动本地服务器</strong></p>
-<p>bash</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo server  <span class="comment"># 默认访问 http://localhost:4000</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p><strong>生成静态文件</strong></p>
-<p>bash</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo clean &amp;&amp; hexo generate  <span class="comment"># 清除缓存并生成到 public/</span></span><br></pre></td></tr></table></figure></li>
-</ol>
-<hr>
-<h3 id="三、部署到-GitHub-Pages"><a href="#三、部署到-GitHub-Pages" class="headerlink" title="三、部署到 GitHub Pages"></a>三、部署到 GitHub Pages</h3><ol>
-<li><p><strong>配置_config.yml</strong></p>
-<p>确保部署配置正确：</p>
-<p>yaml</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">deploy:</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">git</span></span><br><span class="line">  <span class="attr">repo:</span> <span class="string">git@github.com:用户名/仓库名.git</span>  <span class="comment"># 或 HTTPS 链接</span></span><br><span class="line">  <span class="attr">branch:</span> <span class="string">gh-pages</span>  <span class="comment"># 通常为 gh-pages 或 master</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p><strong>安装部署插件</strong></p>
-<p>bash</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
-</li>
-<li><p><strong>执行部署</strong></p>
-<p>bash</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo deploy  <span class="comment"># 自动推送 public/ 内容到指定分支</span></span><br></pre></td></tr></table></figure></li>
-</ol>
-<hr>
-<h3 id="四、主题管理"><a href="#四、主题管理" class="headerlink" title="四、主题管理"></a>四、主题管理</h3><ol>
-<li><p><strong>安装&#x2F;更换主题</strong></p>
-<p>bash</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/主题作者/主题仓库.git themes/主题名</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><p>修改</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">_config.yml</span><br></pre></td></tr></table></figure>
-
-<p>：yaml</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">theme:</span> <span class="string">主题名</span></span><br></pre></td></tr></table></figure></li>
-</ul>
-</li>
-<li><p><strong>更新主题</strong></p>
-<p>bash</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> themes/主题名</span><br><span class="line">git pull</span><br></pre></td></tr></table></figure></li>
-</ol>
-<hr>
-<h3 id="五、配置优化"><a href="#五、配置优化" class="headerlink" title="五、配置优化"></a>五、配置优化</h3><ol>
-<li><strong>全局配置</strong><ul>
-<li>修改根目录的 <code>_config.yml</code>，配置网站标题、描述、语言等。</li>
-</ul>
-</li>
-<li><strong>插件管理</strong><ul>
-<li>常用插件：<ul>
-<li><code>hexo-generator-feed</code>（RSS）</li>
-<li><code>hexo-renderer-markdown-it</code>（增强 Markdown 渲染）</li>
-</ul>
-</li>
-<li>安装插件后需在 <code>_config.yml</code> 中配置。</li>
-</ul>
-</li>
-</ol>
-<hr>
-<h3 id="六、版本控制（关键！）"><a href="#六、版本控制（关键！）" class="headerlink" title="六、版本控制（关键！）"></a>六、版本控制（关键！）</h3><ul>
-<li><p><strong>备份 Hexo 源码</strong></p>
-<ul>
-<li><p>将整个 Hexo 项目（包括source&#x2F;、themes&#x2F;、_config.yml等）提交到 GitHub 的 独立分支（如hexo-source）：</p>
-<p>bash</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">git init</span><br><span class="line">git checkout -b hexo-source  <span class="comment"># 创建分支</span></span><br><span class="line">git add .</span><br><span class="line">git commit -m <span class="string">&quot;初始化Hexo源码&quot;</span></span><br><span class="line">git remote add origin git@github.com:用户名/仓库名.git</span><br><span class="line">git push -u origin hexo-source</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>避免将 <code>node_modules</code> 和 <code>public/</code> 提交到仓库（通过 <code>.gitignore</code> 过滤）。</p>
-</li>
-</ul>
-</li>
-</ul>
-<hr>
-<h3 id="七、高级维护"><a href="#七、高级维护" class="headerlink" title="七、高级维护"></a>七、高级维护</h3><ol>
-<li><strong>SEO 优化</strong><ul>
-<li>使用 <code>hexo-generator-sitemap</code> 生成站点地图。</li>
-<li>提交到 Google Search Console 和 Bing Webmaster Tools。</li>
-</ul>
-</li>
-<li><strong>评论系统</strong><ul>
-<li>集成 Disqus 或 Gitalk。</li>
-</ul>
-</li>
-<li><strong>流量分析</strong><ul>
-<li>添加 Google Analytics 或 Umami 统计代码。</li>
-</ul>
-</li>
-<li><strong>CDN 加速</strong><ul>
-<li>通过 Cloudflare 或 jsDelivr 加速静态资源加载。</li>
-</ul>
-</li>
-</ol>
-<hr>
-<h3 id="八、备份与恢复"><a href="#八、备份与恢复" class="headerlink" title="八、备份与恢复"></a>八、备份与恢复</h3><ul>
-<li><p><strong>定期备份</strong><br>将整个 Hexo 目录打包保存到云盘或私有仓库。</p>
-</li>
-<li><p><strong>恢复博客</strong></p>
-<p>bash</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> -b hexo-source git@github.com:用户名/仓库名.git</span><br><span class="line"><span class="built_in">cd</span> 仓库名</span><br><span class="line">npm install  <span class="comment"># 恢复依赖</span></span><br></pre></td></tr></table></figure></li>
-</ul>
-<hr>
-<h3 id="九、自定义域名"><a href="#九、自定义域名" class="headerlink" title="九、自定义域名"></a>九、自定义域名</h3><ol>
-<li><strong>购买域名</strong><br>在 Cloudflare、Namecheap 等平台注册。</li>
-<li><strong>配置 CNAME</strong><ul>
-<li>在 <code>source/</code> 下创建 <code>CNAME</code> 文件，内容为域名（如 <code>blog.example.com</code>）。</li>
-</ul>
-</li>
-<li><strong>DNS 解析</strong><br>添加 <code>CNAME</code> 记录指向 GitHub Pages 的域名（如 <code>用户名.github.io</code>）。</li>
-</ol>
-<hr>
-<h3 id="十、常见问题"><a href="#十、常见问题" class="headerlink" title="十、常见问题"></a>十、常见问题</h3><ul>
-<li><strong>部署失败</strong>：检查 GitHub Token 权限或 SSH 密钥配置。</li>
-<li><strong>主题冲突</strong>：更新后测试本地渲染，避免插件版本不兼容。</li>
-<li><strong>加载缓慢</strong>：压缩图片、启用 CDN 或减少第三方脚本。</li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/%E5%8D%9A%E5%AE%A2%E7%BD%91%E7%AB%99%E7%AE%A1%E7%90%86/" data-id="cm7wpxmn70001lwvv0r4c5vbx" data-title="博客网站管理" class="article-share-link"><span class="fa fa-share">分享</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-博客介绍" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/%E5%8D%9A%E5%AE%A2%E4%BB%8B%E7%BB%8D/" class="article-date">
-  <time class="dt-published" datetime="2025-03-01T02:35:44.000Z" itemprop="datePublished">2025-03-01</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/%E5%8D%9A%E5%AE%A2%E4%BB%8B%E7%BB%8D/">博客介绍</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h3 id="嵌入式学习笔记"><a href="#嵌入式学习笔记" class="headerlink" title="嵌入式学习笔记"></a>嵌入式学习笔记</h3>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/%E5%8D%9A%E5%AE%A2%E4%BB%8B%E7%BB%8D/" data-id="cm7wpxmno0003lwvv4s4m9v13" data-title="博客介绍" class="article-share-link"><span class="fa fa-share">分享</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
 
 
 </section>
