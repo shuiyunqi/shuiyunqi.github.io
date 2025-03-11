@@ -93,7 +93,10 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <h2 id="一、嵌入式系统"><a href="#一、嵌入式系统" class="headerlink" title="一、嵌入式系统"></a>一、嵌入式系统</h2><h3 id="1-概念"><a href="#1-概念" class="headerlink" title="1. 概念"></a>1. 概念</h3><p>嵌入式系统是一种专门为特定应用而设计的计算机系统，它以应用为核心，依托计算机技术构建，并且其硬件和软件部分都能够根据实际需求进行裁剪。它并非像通用计算机那样具备广泛的通用性，而是深度嵌入到其他设备之中，致力于实现特定的功能。例如常见的智能手环，其内部的嵌入式系统专注于运动数据监测、心率测量以及信息提醒等功能，为用户提供便捷的健康与生活辅助服务。</p>
+        <h2 id="一、嵌入式系统"><a href="#一、嵌入式系统" class="headerlink" title="一、嵌入式系统"></a>一、嵌入式系统</h2><h3 id="1-概念"><a href="#1-概念" class="headerlink" title="1. 概念"></a>1. 概念</h3><p>嵌入式系统是一种专门为特定应用而设计的计算机系统，它以应用为核心，依托计算机技术构建，并且其硬件和软件部分都能够根据实际需求进行裁剪。它并非像通用计算机那样具备广泛的通用性，而是深度嵌入到其他设备之中，致力于实现特定的功能。例如常见的智能手环</p>
+<h4 id="1-1常见的嵌入式开发系统："><a href="#1-1常见的嵌入式开发系统：" class="headerlink" title="1.1常见的嵌入式开发系统："></a>1.1常见的嵌入式开发系统：</h4><p>VxWorks</p>
+<p>linux</p>
+<p>uC&#x2F;OS-II </p>
 <h3 id="2-三要素"><a href="#2-三要素" class="headerlink" title="2. 三要素"></a>2. 三要素</h3><ul>
 <li><p><strong>专用性</strong>：</p>
 </li>
@@ -142,9 +145,23 @@
 <li><p><strong>航空航天</strong>：飞行控制系统的嵌入式系统负责控制飞机的飞行姿态、导航、通信等关键功能，确保飞机在各种复杂环境下安全飞行。</p>
 </li>
 </ul>
-<h3 id="4-组成结构"><a href="#4-组成结构" class="headerlink" title="4. 组成结构"></a>4. 组成结构</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">+---------------------+</span><br><span class="line">| 硬件层              |</span><br><span class="line">|   - 处理器（CPU）   |</span><br><span class="line">|       - 作为嵌入式系统的核心运算单元，负责执行指令和数据处理。不同类型的处理器适用于不同场景，例如ARM架构处理器因其低功耗、高性能在嵌入式领域广泛应用；而在一些对计算性能要求极高的场景，可能会采用PowerPC等高性能处理器。|</span><br><span class="line">|   - 存储器（ROM/RAM）|</span><br><span class="line">|       - ROM（只读存储器）用于存储系统启动代码、操作系统内核以及一些固定不变的程序和数据，如引导加载程序，在系统断电后数据不会丢失。 |</span><br><span class="line">|       - RAM（随机存取存储器）用于存储正在运行的程序和临时数据，系统运行时的程序代码和数据会加载到RAM中，其读写速度快，但断电后数据丢失。|</span><br><span class="line">|   - 外设接口        |</span><br><span class="line">|       - 包括串口、并口、USB接口、SPI接口等。串口常用于设备之间的低速数据通信，如传感器与微控制器之间的数据传输；USB接口则广泛应用于连接各种外部设备，如鼠标、键盘、打印机等，提供高速数据传输和电源供应。|</span><br><span class="line">+---------------------+</span><br><span class="line">| 中间层（驱动层）    |</span><br><span class="line">|   - 设备驱动程序    |</span><br><span class="line">|       - 设备驱动程序是硬件与操作系统之间的桥梁。例如，对于一个摄像头设备，驱动程序负责将操作系统对摄像头的操作指令（如拍照、调整焦距等）转换为摄像头硬件能够理解的控制信号，同时将摄像头采集到的数据按照操作系统能够识别的格式传输给上层应用程序。|</span><br><span class="line">+---------------------+</span><br><span class="line">| 软件层              |</span><br><span class="line">|   - RTOS（实时操作系统）|</span><br><span class="line">|       - 实时操作系统能够对外部事件在规定时间内做出及时响应。它负责任务调度、内存管理、中断处理等功能。以ucos - II为例，它采用抢占式调度算法，确保重要任务能够优先执行，在工业控制、航空航天等对实时性要求较高的领域应用广泛。|</span><br><span class="line">|   - 应用程序        |</span><br><span class="line">|       - 根据具体应用需求开发的软件，如智能家居系统中的控制APP，用户通过手机APP可以远程控制家中的灯光、窗帘、家电等设备，这些APP就是运行在嵌入式系统上的应用程序。|</span><br><span class="line">+---------------------+</span><br></pre></td></tr></table></figure>
-
-<h3 id="5-开发流程"><a href="#5-开发流程" class="headerlink" title="5. 开发流程"></a>5. 开发流程</h3><p>1.<strong>需求分析</strong>：</p>
+<h3 id="4-组成结构"><a href="#4-组成结构" class="headerlink" title="4. 组成结构"></a>4. 组成结构</h3><p>嵌入式系统组成：  应用软件</p>
+<p>​				嵌入式操作系统</p>
+<p>​				硬件设备（嵌入式处理器，外部设备）</p>
+<p>硬件是基础，软件是其核心和灵魂</p>
+<h4 id="4-1硬件组成："><a href="#4-1硬件组成：" class="headerlink" title="4.1硬件组成："></a>4.1硬件组成：</h4><p><strong>硬件设备</strong>：嵌入式处理器（CPU），外围设备</p>
+<p>处理器是核心部分，外围设备是嵌入式系统中完成（存储、通信、调试、显示）等辅助功能的其他部件</p>
+<p><strong>常见外围设备</strong>：1.存储设备（RAM,SRAM,Flash等）</p>
+<p>​			   2.通信设备（RS-232接口，SPI接口等）</p>
+<p>​			   3.显示设备（显示屏等）</p>
+<h4 id="4-2存储器分类："><a href="#4-2存储器分类：" class="headerlink" title="4.2存储器分类："></a>4.2存储器分类：</h4><p>RAM：随机存取存储器（掉电后数据会丢失）常说的内存</p>
+<p>​		SRAM(静态存储器)DRAM(动态存储器，不停给电容充电维持信息)</p>
+<p>ROM：只读存储器（掉电后数据不会丢失）</p>
+<h4 id="4-3软件组成："><a href="#4-3软件组成：" class="headerlink" title="4.3软件组成："></a>4.3软件组成：</h4><p>应用层</p>
+<p>（内核层）（有操作系统才有内核层）</p>
+<p>驱动层</p>
+<p>硬件层</p>
+<h3 id="5-开发流程（交叉编译交叉调试）"><a href="#5-开发流程（交叉编译交叉调试）" class="headerlink" title="5.开发流程（交叉编译交叉调试）"></a>5.开发流程（交叉编译交叉调试）</h3><p>1.<strong>需求分析</strong>：</p>
 <ul>
 <li>与客户或相关领域专家沟通，明确嵌入式系统需要实现的功能、性能指标、使用环境等要求。例如开发一款智能车载导航系统，需要确定导航精度、地图更新方式、屏幕显示尺寸和分辨率、与汽车其他系统的兼容性等需求。</li>
 </ul>
@@ -171,7 +188,21 @@
 <ul>
 <li>对系统进行全面测试，包括功能测试、性能测试、稳定性测试、兼容性测试等。例如对智能车载导航系统进行不同路况下的导航功能测试、长时间运行的稳定性测试以及与不同车型的兼容性测试等，确保系统满足设计要求。</li>
 </ul>
-<h2 id="二、ARM-体系结构"><a href="#二、ARM-体系结构" class="headerlink" title="二、ARM 体系结构"></a>二、ARM 体系结构</h2><h3 id="1-ARM-含义"><a href="#1-ARM-含义" class="headerlink" title="1. ARM 含义"></a>1. ARM 含义</h3><p><strong>Advanced RISC Machine</strong>（进阶精简指令集机器），ARM 既是一家公司的名称，也是一种处理器架构的名称。ARM 公司设计了一系列具有高性能、低功耗特点的处理器架构，并将其授权给其他芯片制造商，这些制造商根据 ARM 架构生产出各种不同型号的处理器芯片，广泛应用于嵌入式系统、移动设备等领域。</p>
+<h3 id="6-嵌入式开发特点："><a href="#6-嵌入式开发特点：" class="headerlink" title="6.嵌入式开发特点："></a>6.嵌入式开发特点：</h3><p>1.专用，软硬件可裁剪，可配置</p>
+<p>2.低功耗，高可靠性，高稳定性</p>
+<p>3.软件代码短小精悍</p>
+<p>4.代码可固化</p>
+<p>5.实时性：嵌入式系统不等于实时系统</p>
+<p>6.弱交互性</p>
+<p>7.嵌入式软件开发需要专门开发工具和开发环境</p>
+<p>8.要求开发设计人员有较高的技能</p>
+<h3 id="7-嵌入式发展阶段"><a href="#7-嵌入式发展阶段" class="headerlink" title="7.嵌入式发展阶段"></a>7.嵌入式发展阶段</h3><p>1.以单芯片为核心的可编程控制器形式的系统（无操作系统支持）</p>
+<p>2.以嵌入式CPU为基础，以简单操作系统为核心的嵌入式系统</p>
+<p>3.以嵌入式操作系统为标志的嵌入式系统</p>
+<p>4.以物联网为标志的嵌入式系统</p>
+<h2 id="二、ARM-体系结构"><a href="#二、ARM-体系结构" class="headerlink" title="二、ARM 体系结构"></a>二、ARM 体系结构</h2><h3 id="1-ARM-含义"><a href="#1-ARM-含义" class="headerlink" title="1. ARM 含义"></a>1. ARM 含义</h3><p><strong>Advanced RISC Machine</strong>（进阶精简指令集机器），**ARM 既是一家公司的名称，也是一种微处理器的通称，还是一种技术的名称。**ARM 公司设计了一系列具有高性能、低功耗特点的处理器架构，并将其授权给其他芯片制造商，这些制造商根据 ARM 架构生产出各种不同型号的处理器芯片，广泛应用于嵌入式系统、移动设备等领域。</p>
+<h3 id="2-ARM技术特征："><a href="#2-ARM技术特征：" class="headerlink" title="2.ARM技术特征："></a>2.ARM技术特征：</h3><p>体积小，低功耗，低成本，高性能</p>
+<p>支持Thumb(16位)&#x2F;ARM(32位)双指令集</p>
 <h3 id="2-Cortex-系列特点"><a href="#2-Cortex-系列特点" class="headerlink" title="2. Cortex 系列特点"></a>2. Cortex 系列特点</h3><table>
 <thead>
 <tr>
@@ -226,7 +257,8 @@
 <td>低成本，其硬件架构相对简单，芯片面积小，降低了生产成本，同时软件资源也较为精简，进一步降低了开发成本，适合大规模应用于物联网节点设备。</td>
 </tr>
 </tbody></table>
-<h2 id="三、RISC-技术"><a href="#三、RISC-技术" class="headerlink" title="三、RISC 技术"></a>三、RISC 技术</h2><h3 id="1-概念-1"><a href="#1-概念-1" class="headerlink" title="1. 概念"></a>1. 概念</h3><p><strong>Reduced Instruction Set Computer</strong>（精简指令集计算机），其设计理念是通过简化指令系统，减少指令种类和复杂度，从而提高计算机的执行效率。与复杂指令集计算机（CISC）相比，RISC 指令集更加注重指令的执行速度和效率。</p>
+<h2 id="三、RISC，CISC-技术"><a href="#三、RISC，CISC-技术" class="headerlink" title="三、RISC，CISC 技术"></a>三、RISC，CISC 技术</h2><h3 id="1-概念-1"><a href="#1-概念-1" class="headerlink" title="1. 概念"></a>1. 概念</h3><p><strong>Reduced Instruction Set Computer</strong>（精简指令集计算机），其设计理念是通过<strong>简化指令系统</strong>，减少指令种类和复杂度，从而<strong>提高计算机的执行效率</strong>。与复杂指令集计算机（CISC）相比，RISC 指令集更加注重指令的执行速度和效率。</p>
+<p>CISC：更侧重硬件执行指令的功能性。用于特定目的的专用寄存器</p>
 <h3 id="2-特点"><a href="#2-特点" class="headerlink" title="2. 特点"></a>2. 特点</h3><ul>
 <li><p><strong>指令总数少</strong>：通常指令总数大约在 100 条左右，相比于 CISC 指令集的几百条甚至上千条指令，RISC 指令集只保留了最常用、最基本的指令，这样可以简化处理器的设计和译码逻辑。</p>
 </li>
@@ -239,6 +271,35 @@
 <li><p><strong>硬布线控制逻辑</strong>：采用硬布线控制逻辑来实现指令的执行控制，相比于 CISC 的微程序控制，硬布线控制逻辑速度更快，能够更快速地对指令进行译码和执行，提高处理器的运行效率。</p>
 </li>
 </ul>
+<table>
+<thead>
+<tr>
+<th>比较维度</th>
+<th>RISC（精简指令集计算机）</th>
+<th>CISC（复杂指令集计算机）</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>指令集</strong></td>
+<td>- 指令数量少且简单，通常只包含基本的、常用的指令，如算术运算、逻辑运算等。 - 指令格式规整，长度一致，便于硬件译码和执行。 - 指令执行周期短，大多数指令在一个时钟周期内完成。</td>
+<td>- 指令数量多且复杂，包含了各种复杂的操作指令，以满足不同的应用需求。 - 指令格式多样，长度不一，增加了硬件译码的复杂度。 - 指令执行周期差异大，有些复杂指令可能需要多个时钟周期才能完成。</td>
+</tr>
+<tr>
+<td><strong>流水线</strong></td>
+<td>- 由于指令简单，易于实现流水线技术，能够充分发挥流水线的效率，提高指令执行的并行性。 - 流水线深度较深，通常可以达到 5 - 8 级甚至更深，使得多个指令可以同时在不同的阶段执行。</td>
+<td>- 指令复杂度高，流水线设计和管理难度较大，容易出现流水线阻塞和冲突的情况，影响流水线的效率。 - 流水线深度相对较浅，一般为 2 - 4 级，并行执行的指令数量相对较少。</td>
+</tr>
+<tr>
+<td><strong>寄存器</strong></td>
+<td>- 强调使用大量的通用寄存器，减少对内存的访问，以提高数据处理速度。程序中的数据操作主要在寄存器之间进行，只有在必要时才访问内存。 - 寄存器的使用规则简单，便于编译器进行优化。</td>
+<td>- 寄存器数量相对较少，对内存的访问较为频繁。许多指令需要直接访问内存中的数据，导致内存访问开销较大。 - 寄存器的使用规则较为复杂，编译器优化难度较大。</td>
+</tr>
+<tr>
+<td><strong>Load&#x2F;Store 结构</strong></td>
+<td>- 采用 Load&#x2F;Store 结构，即只有 Load 和 Store 指令可以访问内存，其他指令只能在寄存器之间进行操作。这种结构使得指令执行更加清晰和高效，便于硬件实现和优化。</td>
+<td>- 不严格遵循 Load&#x2F;Store 结构，许多指令可以直接对内存中的数据进行操作，增加了指令的复杂度和硬件设计的难度。</td>
+</tr>
+</tbody></table>
 <h2 id="四、存储结构对比"><a href="#四、存储结构对比" class="headerlink" title="四、存储结构对比"></a>四、存储结构对比</h2><h3 id="1-冯诺依曼结构"><a href="#1-冯诺依曼结构" class="headerlink" title="1. 冯诺依曼结构"></a>1. 冯诺依曼结构</h3><ul>
 <li><p><strong>特点</strong>：指令与数据共享同一总线，处理器在读取指令和数据时都通过这一条总线进行传输。这意味着在同一时刻，处理器只能进行取指令操作或者数据读写操作，不能同时进行。</p>
 </li>
@@ -320,7 +381,7 @@
 </tr>
 </tbody></table>
 <h2 id="六、存储模式"><a href="#六、存储模式" class="headerlink" title="六、存储模式"></a>六、存储模式</h2><h3 id="1-大端模式（Big-endian）"><a href="#1-大端模式（Big-endian）" class="headerlink" title="1. 大端模式（Big - endian）"></a>1. 大端模式（Big - endian）</h3><ul>
-<li><p>高位字节存储在低地址。例如对于一个 32 位的数据 0x12345678，在大端模式下，其存储方式为：地址 0x00 存储 0x12（高位字节），地址 0x01 存储 0x34，地址 0x02 存储 0x56，地址 0x03 存储 0x78（低位字节）。这种存储模式类似于人类书写数字的习惯，从高位到低位依次存储。</p>
+<li><p>高位字节存储在低地址。例如对于一个 32 位的数据 0x12345678（<strong>最右边是低位</strong>），在大端模式下，其存储方式为：地址 0x00 存储 0x12（高位字节），地址 0x01 存储 0x34，地址 0x02 存储 0x56，地址 0x03 存储 0x78（低位字节）。这种存储模式类似于人类书写数字的习惯，从高位到低位依次存储。</p>
 </li>
 <li><p>应用场景：在一些网络通信协议中，如 TCP&#x2F;IP 协议栈，数据的传输通常采用大端模式，以保证不同系统之间数据的一致性。</p>
 </li>
@@ -328,7 +389,7 @@
 <h3 id="2-小端模式（Little-endian）"><a href="#2-小端模式（Little-endian）" class="headerlink" title="2. 小端模式（Little - endian）"></a>2. 小端模式（Little - endian）</h3><ul>
 <li><p>低位字节存储在低地址。对于数据 0x12345678，在小端模式下，地址 0x00 存储 0x78（低位字节），地址 0x01 存储 0x56，地址 0x02 存储 0x34，地址 0x03 存储 0x12（高位字节）。这种存储模式与处理器内部的运算方式更匹配，在一些微处理器和微控制器中较为常用。</p>
 </li>
-<li><p>应用场景：在大多数基于 x86 架构的个人计算机中，内存数据存储采用小端模式，因为 x86 处理器的设计更适合小端模式的运算。</p>
+<li><p>应用场景：在大多数基于 x86 架构的<strong>个人计算机中，内存数据存储采用小端模式</strong>，因为 x86 处理器的设计更适合小端模式的运算。</p>
 </li>
 </ul>
 <h2 id="七、内存对齐规则"><a href="#七、内存对齐规则" class="headerlink" title="七、内存对齐规则"></a>七、内存对齐规则</h2><ul>
@@ -337,14 +398,117 @@
 <li><p><strong>字</strong>：必须 4 字节对齐，即内存地址必须是 4 的倍数（地址 % 4 &#x3D;&#x3D; 0）。字类型数据长度为 32 位（4 字节），同样，如果不按照 4 字节对齐存储，会增加处理器访问数据的复杂性和时间开销，降低系统性能。例如，一个字数据 0x12345678，存储在地址 0x0004 处符合 4 字节对齐，</p>
 </li>
 </ul>
-<h2 id="八、数据处理指令的寻址方式"><a href="#八、数据处理指令的寻址方式" class="headerlink" title="八、数据处理指令的寻址方式"></a>八、数据处理指令的寻址方式</h2><h3 id="1-寄存器寻址"><a href="#1-寄存器寻址" class="headerlink" title="1. 寄存器寻址"></a>1. 寄存器寻址</h3><p>在寄存器寻址方式中，指令所需的操作数直接存放在寄存器中。处理器在执行指令时，从指定的寄存器中读取操作数进行运算，运算结果也可存储回寄存器。例如，在 ARM 指令集中，ADD R0, R1, R2 这条指令表示将寄存器 R1 和 R2 中的值相加，结果存放到寄存器 R0 中。这里操作数 R1 和 R2 都来自寄存器，这种寻址方式速度极快，因为寄存器位于处理器内部，访问寄存器的延迟远远小于访问内存。在频繁进行数据处理的场景，如循环运算中，寄存器寻址可以极大提高运算效率，减少数据访问时间开销。</p>
-<h3 id="2-立即数寻址"><a href="#2-立即数寻址" class="headerlink" title="2. 立即数寻址"></a>2. 立即数寻址</h3><p>立即数寻址是指指令中的操作数直接以常量的形式给出，该常量称为立即数。例如，MOV R0, #0x10 这条指令将立即数 0x10 传送到寄存器 R0 中。立即数寻址常用于对寄存器进行初始化赋值，或者在一些简单的运算中作为固定的操作数。其优点是指令执行过程简单，不需要额外的内存访问来获取操作数。但缺点是立即数的表示范围有限，在 ARM 指令集中，立即数需要满足一定的编码规则，并非所有的数值都能直接以立即数形式出现在指令中。</p>
+<h2 id="八、内核工作模式"><a href="#八、内核工作模式" class="headerlink" title="八、内核工作模式"></a>八、内核工作模式</h2><table>
+<thead>
+<tr>
+<th>处理器工作模式</th>
+<th>简写</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>用户模式</td>
+<td>usr</td>
+<td align="left">正常程序执行的模式，<strong>大部分应用程序在该模式下运行，是非特权模式</strong>，对系统资源的访问受到限制，不能直接切换到其他模式，需通过异常处理机制进行模式切换。</td>
+</tr>
+<tr>
+<td>快速中断模式</td>
+<td>fiq</td>
+<td align="left">用于处理快速中断请求，具备较高的优先级，拥有额外的寄存器，可减少上下文切换开销，提高中断处理速度，适合处理对时间敏感的任务，如高速数据传输等。</td>
+</tr>
+<tr>
+<td>外部中断模式</td>
+<td>irq</td>
+<td align="left">用于处理一般的外部中断请求，优先级低于 FIQ 模式，是常见的中断处理模式。</td>
+</tr>
+<tr>
+<td>管理模式</td>
+<td>svc</td>
+<td align="left">操作系统使用的特权模式，在系统复位、软件中断指令（如 SWI）执行时进入该模式，主要用于操作系统内核的管理和服务调用。</td>
+</tr>
+<tr>
+<td>数据访问中止模式</td>
+<td>abt</td>
+<td align="left">当数据访问指令（如加载或存储指令）出现异常时进入该模式，用于处理内存访问错误、页错误等数据访问相关的异常情况。</td>
+</tr>
+<tr>
+<td>未定义指令中止模式</td>
+<td>und</td>
+<td align="left">当处理器执行到未定义的指令时进入该模式，可用于实现软件仿真硬件指令、调试等功能，处理那些无法识别的指令。</td>
+</tr>
+<tr>
+<td>系统模式</td>
+<td>sys</td>
+<td align="left">与用户模式使用相同的寄存器，但它是特权模式，主要用于运行特权级的操作系统任务，可访问所有系统资源，可在不引发异常的情况下访问特权资源。</td>
+</tr>
+<tr>
+<td>监控模式</td>
+<td>mon</td>
+<td align="left">在 ARM 的安全扩展机制中引入，主要用于安全世界和普通世界之间的切换和管理。当发生安全异常时，处理器会进入监控模式，它是安全状态下的一种特殊模式，负责处理安全相关的操作和异常。</td>
+</tr>
+</tbody></table>
+<p>除了用户模式，其他七种是特权模式，</p>
+<p>特权模式除了系统模式，其他六种是异常模式</p>
+<h2 id="九、流水线"><a href="#九、流水线" class="headerlink" title="九、流水线"></a>九、流水线</h2><h3 id="1-三级流水线（ARM7）"><a href="#1-三级流水线（ARM7）" class="headerlink" title="1. 三级流水线（ARM7）"></a>1. 三级流水线（ARM7）</h3><p>取址–》译码–》执行</p>
+<h3 id="2-五级流水线"><a href="#2-五级流水线" class="headerlink" title="2.五级流水线"></a>2.五级流水线</h3><p>取址–》译码–》执行–》缓冲&#x2F;数据–》回写</p>
+<h3 id="3-十三级流水线"><a href="#3-十三级流水线" class="headerlink" title="3.十三级流水线"></a>3.十三级流水线</h3><h2 id="十、寄存器"><a href="#十、寄存器" class="headerlink" title="十、寄存器"></a>十、寄存器</h2><h3 id="10-1、寄存器类别及数量"><a href="#10-1、寄存器类别及数量" class="headerlink" title="10.1、寄存器类别及数量"></a>10.1、寄存器类别及数量</h3><h4 id="通用寄存器"><a href="#通用寄存器" class="headerlink" title="通用寄存器"></a>通用寄存器</h4><p>ARM 架构下拥有 <strong>32 个通用寄存器</strong>，它们在处理器运行过程中承担着数据存储、运算操作等关键任务。其中：</p>
+<ul>
+<li><p><strong>R0 - R15 具有特定名称及功能</strong>：</p>
+</li>
+<li><p><strong>R0 - R12</strong>：为常用通用寄存器，可存储数据、地址，在函数调用时，R0 - R3 用于传递前四个参数，函数返回值常存于 R0。在数据处理指令中，作为操作数的源与目标寄存器，执行算术（加、减、乘等）及逻辑（与、或、异或等）运算。</p>
+</li>
+<li><p><strong>R13（SP）</strong>：<strong>堆栈指针寄存器</strong>，指向当前堆栈栈顶。在函数调用、局部变量存储和上下文保存时，依据堆栈操作相应调整，函数返回时恢复到调用前状态。</p>
+</li>
+<li><p><strong>R14（LR）</strong>：<strong>链路寄存器</strong>，函数调用时<strong>保存返回地址，执行 BL 指令调用函数</strong>，处理器<strong>自动将下条指令地址存入 LR</strong>，函数结束可通过将 LR 值加载到 PC 返回调用点，异常处理中也用于保存异常发生时返回地址。</p>
+</li>
+<li><p><strong>R15（PC）</strong>：程序计数器，存储当前执行或即将执行指令的地址，其值决定程序执行流程，指令执行时自动递增，修改 PC 值可实现程序跳转、分支等控制流操作。</p>
+</li>
+<li><p><strong>通用寄存器分组情况</strong>：</p>
+</li>
+<li><p><strong>未分组寄存器</strong>：R0 - R7，这些寄存器在所有处理器模式下都指向同一个物理寄存器，它们在不同模式间共享，可被任何模式下的程序自由访问与使用，在数据处理和通用计算场景中频繁发挥作用 。</p>
+</li>
+<li><p><strong>分组寄存器</strong>：R8 - R14，它们在不同处理器模式下可能指向不同的物理寄存器。其中，R8 - R12 有两组，一组为 FIQ 模式专用（私有），另一组为除 FIQ 外其他模式共用（公有）；R13 和 R14 在每种特权模式（如管理模式、中止模式、未定义模式、中断模式）下都有各自独立的物理寄存器（私有），而用户模式和系统模式共用一组 R13、R14 寄存器（公有）。这种分组设计使得不同模式下的程序可以独立使用这些寄存器，避免模式切换时数据冲突，提高系统运行效率与安全性。</p>
+</li>
+</ul>
+<h4 id="状态寄存器"><a href="#状态寄存器" class="headerlink" title="状态寄存器"></a>状态寄存器</h4><p>共有 <strong>7 个状态寄存器</strong>，在处理器运行状态监控与程序流程控制方面至关重要。</p>
+<ul>
+<li><p><strong>CPSR（Current Program Status Register）</strong>：<strong>当前程序状态寄存器</strong>，反映处理器当前运行状态与条件标志。</p>
+</li>
+<li><p><strong>条件标志位</strong>：N（Negative）指示运算结果为负；Z（Zero）表示运算结果为零；C（Carry）用于无符号运算进位或借位；V（Overflow）表示有符号运算溢出，这些标志位是条件执行指令的关键判断依据，如 CPSR 中 Z 标志位为 1 时，BEQ 指令执行分支操作。</p>
+</li>
+<li><p><strong>控制位</strong>：I（Interrupt disable）禁止中断，F（Fast interrupt disable）禁止快速中断，T（Thumb state bit）指示处理器处于 Thumb 还是 ARM 状态，M [4:0]（Mode bits）指定处理器运行模式（用户模式、系统模式、管理模式等），通过设置 M 位可切换处理器模式。</p>
+</li>
+<li><p><strong>SPSR（Saved Program Status Register）</strong>：<strong>备份程序状态寄存器</strong>，异常发生时，CPSR 内容保存到对应 SPSR，各异常模式都有自己的 SPSR，确保异常处理不破坏原有程序状态。异常处理结束，将 SPSR 值恢复到 CPSR，恢复处理器原有状态，继续执行被中断程序。其余 5 个状态寄存器主要用于特定架构扩展或特定场景下状态记录，不同 ARM 架构版本对其定义与使用略有差异，一般用于辅助 CPSR 完成更细致的状态管理与控制 。</p>
+</li>
+</ul>
+<h4 id="程序计数器"><a href="#程序计数器" class="headerlink" title="程序计数器"></a>程序计数器</h4><p>仅 <strong>1 个程序计数器</strong>，即 R15（PC） ，其核心功能是存储指令地址，决定程序执行顺序，在指令执行过程中按序推进，控制程序有条不紊地运行。</p>
+<h4 id="程序状态寄存器"><a href="#程序状态寄存器" class="headerlink" title="程序状态寄存器"></a>程序状态寄存器</h4><p>1.标志位</p>
+<p>​	条件标志位：N（31）,Z（30）,C（29）,V（28）,Q（27）</p>
+<p>2.控制位</p>
+<p>​	I&#x3D;1,IRQ被禁止</p>
+<p>​	F&#x3D;1,FIQ被禁止</p>
+<p>​	T&#x3D;0,ARM状态</p>
+<p>​	T&#x3D;1,Thumb状态</p>
+<p>3.模式控制位</p>
+<p>​	M[4:0] 位模式控制位</p>
+<p>​	0b10001 FIQ</p>
+<p>​	0b10010 IRQ</p>
+<h3 id="10-2、特殊或重点寄存器"><a href="#10-2、特殊或重点寄存器" class="headerlink" title="10.2、特殊或重点寄存器"></a>10.2、特殊或重点寄存器</h3><h4 id="协处理器寄存器"><a href="#协处理器寄存器" class="headerlink" title="协处理器寄存器"></a>协处理器寄存器</h4><p>ARM 架构中，协处理器执行特定功能，如浮点运算、多媒体处理等，协处理器寄存器是其操作对象。以浮点运算协处理器（如 VFP - Vector Floating Point）为例，有一组专属寄存器用于存储和操作浮点数，可执行浮点加、减、乘、除等运算，大幅提升处理器处理浮点数据性能。与通用寄存器不同，访问协处理器寄存器需专门协处理器指令，实现数据在通用与协处理器寄存器间传输及执行协处理器各类操作。</p>
+<h4 id="系统控制寄存器"><a href="#系统控制寄存器" class="headerlink" title="系统控制寄存器"></a>系统控制寄存器</h4><ol>
+<li><p><strong>CP15 寄存器</strong>：系统控制协处理器寄存器，控制处理器系统级功能。可控制内存管理单元（MMU）操作，设置页表基地址、控制内存访问权限，实现虚拟内存管理，提升系统内存利用率与安全性；还能控制高速缓存（Cache）和写缓冲（Write Buffer）操作，如使能或禁止 Cache、设置 Cache 大小和策略等，优化处理器性能。</p>
+</li>
+<li><p><strong>MPU（Memory Protection Unit）寄存器</strong>：用于定义内存区域访问权限和属性。通过设置该寄存器，将内存划分为不同区域，为各区域指定读、写、执行等权限，如设某些区域为只读防止非法写入，或设为特权访问，仅特定处理器模式可访问，在多任务操作系统和安全敏感应用中，保护系统关键数据和代码不被非法访问与修改，增强系统稳定性与安全性。</p>
+</li>
+</ol>
+<h2 id="十一、数据处理指令的寻址方式"><a href="#十一、数据处理指令的寻址方式" class="headerlink" title="十一、数据处理指令的寻址方式"></a>十一、数据处理指令的寻址方式</h2><h3 id="1-寄存器寻址"><a href="#1-寄存器寻址" class="headerlink" title="1. 寄存器寻址"></a>1. 寄存器寻址</h3><p>在寄存器寻址方式中，指令所需的操作数直接存放在寄存器中。处理器在执行指令时，从指定的寄存器中读取操作数进行运算，运算结果也可存储回寄存器。例如，在 ARM 指令集中，ADD R0, R1, R2 这条指令表示将寄存器 R1 和 R2 中的值相加，结果存放到寄存器 R0 中。这里操作数 R1 和 R2 都来自寄存器，这种寻址方式速度极快，因为寄存器位于处理器内部，访问寄存器的延迟远远小于访问内存。在频繁进行数据处理的场景，如循环运算中，寄存器寻址可以极大提高运算效率，减少数据访问时间开销。</p>
+<h3 id="2-立即数寻址"><a href="#2-立即数寻址" class="headerlink" title="2. 立即数寻址"></a>2. 立即数寻址</h3><p><strong>立即数只能作为源操作数，不能作为目的操作数</strong></p>
+<p>立即数寻址是指指令中的操作数直接以常量的形式给出，该常量称为立即数。例如，MOV R0, #0x10 这条指令将立即数 0x10 传送到寄存器 R0 中。立即数寻址常用于对寄存器进行初始化赋值，或者在一些简单的运算中作为固定的操作数。其优点是指令执行过程简单，不需要额外的内存访问来获取操作数。但缺点是立即数的表示范围有限，在 ARM 指令集中，立即数需要满足一定的编码规则，并非所有的数值都能直接以立即数形式出现在指令中。</p>
 <h3 id="3-寄存器移位寻址"><a href="#3-寄存器移位寻址" class="headerlink" title="3. 寄存器移位寻址"></a>3. 寄存器移位寻址</h3><p>寄存器移位寻址是在寄存器寻址的基础上，对寄存器中的操作数进行移位操作后再参与运算。例如，ADD R0, R1, R2, LSL #2 这条指令，先将寄存器 R2 中的值逻辑左移 2 位，然后再与寄存器 R1 中的值相加，结果存放到寄存器 R0 中。常见的移位操作有逻辑左移（LSL）、逻辑右移（LSR）、算术右移（ASR）和循环右移（ROR）等。这种寻址方式在处理一些与位操作相关的运算，如数据掩码、数据提取等场景中非常有用，可以通过移位操作灵活地对数据的特定位进行处理，同时结合寄存器寻址的高效性，提高数据处理指令的执行效率。</p>
-<h2 id="九、访存指令的寻址方式"><a href="#九、访存指令的寻址方式" class="headerlink" title="九、访存指令的寻址方式"></a>九、访存指令的寻址方式</h2><h3 id="1-寄存器间接寻址"><a href="#1-寄存器间接寻址" class="headerlink" title="1. 寄存器间接寻址"></a>1. 寄存器间接寻址</h3><p>寄存器间接寻址中，指令中的寄存器存放的是操作数的内存地址，而不是操作数本身。处理器根据寄存器中的地址去内存中读取或写入操作数。例如，LDR R0, [R1] 这条指令表示将寄存器 R1 所指向的内存地址中的数据读取到寄存器 R0 中。这种寻址方式常用于访问数组、结构体等数据结构，通过修改寄存器中的地址值，可以方便地遍历数组元素或访问结构体成员。在数据存储和访问需要灵活控制地址的场景下，寄存器间接寻址提供了很大的灵活性，但是由于需要访问内存，相比寄存器寻址速度较慢。</p>
+<h2 id="十二、访存指令的寻址方式"><a href="#十二、访存指令的寻址方式" class="headerlink" title="十二、访存指令的寻址方式"></a>十二、访存指令的寻址方式</h2><h3 id="1-寄存器间接寻址"><a href="#1-寄存器间接寻址" class="headerlink" title="1. 寄存器间接寻址"></a>1. 寄存器间接寻址</h3><p>寄存器间接寻址中，指令中的寄存器存放的是操作数的内存地址，而不是操作数本身。处理器根据寄存器中的地址去内存中读取或写入操作数。例如，LDR R0, [R1] 这条指令表示将寄存器 R1 所指向的内存地址中的数据读取到寄存器 R0 中。这种寻址方式常用于访问数组、结构体等数据结构，通过修改寄存器中的地址值，可以方便地遍历数组元素或访问结构体成员。在数据存储和访问需要灵活控制地址的场景下，寄存器间接寻址提供了很大的灵活性，但是由于需要访问内存，相比寄存器寻址速度较慢。</p>
 <h3 id="2-基址寻址"><a href="#2-基址寻址" class="headerlink" title="2. 基址寻址"></a>2. 基址寻址</h3><p>基址寻址是将寄存器（基址寄存器）中的值与指令中的偏移量相加，得到操作数的内存地址。例如，LDR R0, [R1, #4] 这条指令表示将寄存器 R1 的值加上偏移量 4 所得到的内存地址中的数据读取到寄存器 R0 中。基址寻址常用于访问内存中一段连续存储的数据区域，通过设置不同的基址寄存器和偏移量，可以方便地访问该区域内的不同数据。在程序中对静态数据结构的访问，如全局变量数组的访问，常常采用基址寻址方式，它可以简化地址计算过程，提高程序的可读性和可维护性。</p>
 <h3 id="3-多寄存器寻址"><a href="#3-多寄存器寻址" class="headerlink" title="3. 多寄存器寻址"></a>3. 多寄存器寻址</h3><p>多寄存器寻址允许在一条指令中同时对多个寄存器进行操作，实现多个数据的批量读取或写入。例如，LDMIA R0!, {R1 - R3} 这条指令表示从寄存器 R0 所指向的内存地址开始，按照自增（IA）的方式，依次将内存中的数据读取到寄存器 R1、R2 和 R3 中，并且 R0 在读取操作完成后会自动更新为下一个数据的地址。这种寻址方式在数据块传输、堆栈操作等场景中非常高效，可以减少指令执行的数量，提高数据传输效率。常用于函数调用时保存和恢复多个寄存器的值，以及在内存和寄存器之间进行大量数据的快速交换。</p>
 <h3 id="4-堆栈寻址"><a href="#4-堆栈寻址" class="headerlink" title="4. 堆栈寻址"></a>4. 堆栈寻址</h3><p>堆栈寻址是一种特殊的寻址方式，它基于堆栈这种数据结构进行操作。在 ARM 体系结构中，堆栈通常是向低地址方向生长（满递减堆栈）。例如，STMFD SP!, {R1 - R3} 这条指令表示将寄存器 R1、R2 和 R3 的值依次压入堆栈中，堆栈指针 SP 会相应地减小。堆栈寻址主要用于函数调用时保存现场（保存寄存器的值）和恢复现场，以及实现递归函数等场景。通过堆栈寻址，可以方便地管理函数调用过程中的局部变量和返回地址，确保程序在函数调用过程中的正确执行流程。</p>
-<h2 id="十、ARM-指令中有效立即数的判断"><a href="#十、ARM-指令中有效立即数的判断" class="headerlink" title="十、ARM 指令中有效立即数的判断"></a>十、ARM 指令中有效立即数的判断</h2><p>在 ARM 指令集中，立即数需要满足一定的编码规则才能被认为是有效立即数。一个 32 位的立即数需要通过一个 8 位的常数循环右移偶数位得到。具体判断步骤如下：</p>
+<h2 id="十三、ARM-指令中有效立即数的判断"><a href="#十三、ARM-指令中有效立即数的判断" class="headerlink" title="十三、ARM 指令中有效立即数的判断"></a>十三、ARM 指令中有效立即数的判断</h2><p>在 ARM 指令集中，立即数需要满足一定的编码规则才能被认为是有效立即数。一个 32 位的立即数需要通过一个 8 位的常数循环右移偶数位得到。具体判断步骤如下：</p>
 <ol>
 <li><p>将 32 位立即数表示为二进制形式。</p>
 </li>
@@ -352,11 +516,282 @@
 </li>
 </ol>
 <p>例如，对于立即数 0x00000010，它可以看作是 8 位常数 0x10 循环右移 0 位得到，所以是有效立即数。而对于立即数 0x12345678，经过分析无法通过 8 位常数循环右移偶数位得到，因此它不是有效立即数。有效立即数的这种编码规则是为了在指令编码中能够以简洁的方式表示常用的立即数，同时保证指令编码的一致性和高效性。在编写 ARM 汇编程序时，需要注意立即数是否符合有效立即数的规则，否则可能导致指令编码错误，影响程序的正常运行。</p>
+<h2 id="十四、ARM处理器指令集"><a href="#十四、ARM处理器指令集" class="headerlink" title="十四、ARM处理器指令集"></a>十四、ARM处理器指令集</h2><h3 id="1-数据操作指令："><a href="#1-数据操作指令：" class="headerlink" title="1.数据操作指令："></a>1.数据操作指令：</h3><h4 id="MOV（Move）指令"><a href="#MOV（Move）指令" class="headerlink" title="MOV（Move）指令"></a>MOV（Move）指令</h4><p><strong>功能</strong></p>
+<p>将源操作数的值传送到目标寄存器。源操作数可以是立即数或寄存器值。</p>
+<p><strong>语法</strong></p>
+<p>MOV{条件}{S} 目标寄存器, 源操作数</p>
+<p><strong>实例</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">MOV R1, #0x10 ; 将立即数0x10传送到寄存器R1</span><br><span class="line">MOV R2, R1    ; 将寄存器R1的值传送到寄存器R2</span><br></pre></td></tr></table></figure>
 
+<h4 id="MVN（Move-Not）指令"><a href="#MVN（Move-Not）指令" class="headerlink" title="MVN（Move Not）指令"></a>MVN（Move Not）指令</h4><p><strong>功能</strong></p>
+<p>将源操作数按位取反后传送到目标寄存器。</p>
+<p><strong>语法</strong></p>
+<p>MVN{条件}{S} 目标寄存器, 源操作数</p>
+<p><strong>实例</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">MVN R3, #0xFF ; 将立即数0xFF按位取反后传送到寄存器R3</span><br><span class="line">MVN R4, R2    ; 将寄存器R2的值按位取反后传送到寄存器R4</span><br></pre></td></tr></table></figure>
+
+<h4 id="AND（Logical-AND）指令"><a href="#AND（Logical-AND）指令" class="headerlink" title="AND（Logical AND）指令"></a>AND（Logical AND）指令</h4><p><strong>功能</strong></p>
+<p>对两个操作数进行按位与操作，结果存放到目标寄存器。常用于屏蔽某些位。</p>
+<p><strong>语法</strong></p>
+<p>AND{条件}{S} 目标寄存器, 操作数1, 操作数2</p>
+<p><strong>实例</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">AND R5, R1, R2 ; 将寄存器R1和R2的值按位与，结果存到R5</span><br><span class="line">AND R6, R1, #0x0F ; 将寄存器R1的值与立即数0x0F按位与，结果存到R6</span><br></pre></td></tr></table></figure>
+
+<h4 id="EOR（Exclusive-OR）指令"><a href="#EOR（Exclusive-OR）指令" class="headerlink" title="EOR（Exclusive OR）指令"></a>EOR（Exclusive OR）指令</h4><p><strong>功能</strong></p>
+<p>对两个操作数进行按位异或操作，结果存放到目标寄存器。可用于翻转某些位。</p>
+<p><strong>语法</strong></p>
+<p>EOR{条件}{S} 目标寄存器, 操作数1, 操作数2</p>
+<p><strong>实例</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">EOR R7, R1, R2 ; 将寄存器R1和R2的值按位异或，结果存到R7</span><br><span class="line">EOR R8, R1, #0x01 ; 将寄存器R1的值与立即数0x01按位异或，结果存到R8</span><br></pre></td></tr></table></figure>
+
+<h4 id="SUB（Subtract）指令"><a href="#SUB（Subtract）指令" class="headerlink" title="SUB（Subtract）指令"></a>SUB（Subtract）指令</h4><p><strong>功能</strong></p>
+<p>用操作数 1 减去操作数 2，结果存放到目标寄存器。</p>
+<p><strong>语法</strong></p>
+<p>SUB{条件}{S} 目标寄存器, 操作数1, 操作数2</p>
+<p><strong>实例</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">SUB R9, R1, R2 ; 用寄存器R1的值减去R2的值，结果存到R9</span><br><span class="line">SUB R10, R1, #5 ; 用寄存器R1的值减去立即数5，结果存到R10</span><br></pre></td></tr></table></figure>
+
+<h4 id="RSB（Reverse-Subtract）指令"><a href="#RSB（Reverse-Subtract）指令" class="headerlink" title="RSB（Reverse Subtract）指令"></a>RSB（Reverse Subtract）指令</h4><p><strong>功能</strong></p>
+<p>用操作数 2 减去操作数 1，结果存放到目标寄存器。</p>
+<p><strong>语法</strong></p>
+<p>RSB{条件}{S} 目标寄存器, 操作数1, 操作数2</p>
+<p><strong>实例</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">RSB R11, R1, R2 ; 用寄存器R2的值减去R1的值，结果存到R11</span><br><span class="line">RSB R12, R1, #10 ; 用立即数10减去寄存器R1的值，结果存到R12</span><br></pre></td></tr></table></figure>
+
+<h4 id="ADD（Addition）指令"><a href="#ADD（Addition）指令" class="headerlink" title="ADD（Addition）指令"></a>ADD（Addition）指令</h4><p><strong>功能</strong></p>
+<p>将两个操作数相加，结果存放到目标寄存器。</p>
+<p><strong>语法</strong></p>
+<p>ADD{条件}{S} 目标寄存器, 操作数1, 操作数2</p>
+<p><strong>实例</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ADD R13, R1, R2 ; 将寄存器R1和R2的值相加，结果存到R13</span><br><span class="line">ADD R14, R1, #3 ; 将寄存器R1的值与立即数3相加，结果存到R14</span><br></pre></td></tr></table></figure>
+
+<h4 id="ADC（Add-with-Carry）指令"><a href="#ADC（Add-with-Carry）指令" class="headerlink" title="ADC（Add with Carry）指令"></a>ADC（Add with Carry）指令</h4><p><strong>功能</strong></p>
+<p>将两个操作数相加，并加上进位标志 C 的值，结果存放到目标寄存器。用于多精度加法。</p>
+<p><strong>语法</strong></p>
+<p>ADC{条件}{S} 目标寄存器, 操作数1, 操作数2</p>
+<p><strong>实例</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">; 假设之前操作使C标志置位</span><br><span class="line">ADD R15, R1, R2</span><br><span class="line">ADC R16, R3, R4 ; R16 = R3 + R4 + C</span><br></pre></td></tr></table></figure>
+
+<h4 id="SBC（Subtract-with-Carry）指令"><a href="#SBC（Subtract-with-Carry）指令" class="headerlink" title="SBC（Subtract with Carry）指令"></a>SBC（Subtract with Carry）指令</h4><p><strong>功能</strong></p>
+<p>用操作数 1 减去操作数 2，再减去借位标志（C 取反）的值，结果存放到目标寄存器。用于多精度减法。</p>
+<p><strong>语法</strong></p>
+<p>SBC{条件}{S} 目标寄存器, 操作数1, 操作数2</p>
+<p><strong>实例</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">; 假设之前操作使C标志置位</span><br><span class="line">SUB R17, R1, R2</span><br><span class="line">SBC R18, R3, R4 ; R18 = R3 - R4 - (!C)</span><br></pre></td></tr></table></figure>
+
+<h4 id="RSC（Reverse-Subtract-with-Carry）指令"><a href="#RSC（Reverse-Subtract-with-Carry）指令" class="headerlink" title="RSC（Reverse Subtract with Carry）指令"></a>RSC（Reverse Subtract with Carry）指令</h4><p><strong>功能</strong></p>
+<p>用操作数 2 减去操作数 1，再减去借位标志（C 取反）的值，结果存放到目标寄存器。</p>
+<p><strong>语法</strong></p>
+<p>RSC{条件}{S} 目标寄存器, 操作数1, 操作数2</p>
+<p><strong>实例</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">; 假设之前操作使C标志置位</span><br><span class="line">RSB R19, R1, R2</span><br><span class="line">RSC R20, R3, R4 ; R20 = R4 - R3 - (!C)</span><br></pre></td></tr></table></figure>
+
+<h4 id="TST（Test）指令"><a href="#TST（Test）指令" class="headerlink" title="TST（Test）指令"></a>TST（Test）指令</h4><p><strong>功能</strong></p>
+<p>对两个操作数进行按位与操作，根据结果设置条件标志位，但不保存结果。用于测试某些位是否为 1。</p>
+<p><strong>语法</strong></p>
+<p>TST{条件} 操作数1, 操作数2</p>
+<p><strong>实例</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">TST R1, #0x01 ; 测试寄存器R1的最低位是否为1</span><br></pre></td></tr></table></figure>
+
+<h4 id="TEQ（Test-Equivalence）指令"><a href="#TEQ（Test-Equivalence）指令" class="headerlink" title="TEQ（Test Equivalence）指令"></a>TEQ（Test Equivalence）指令</h4><p><strong>功能</strong></p>
+<p>对两个操作数进行按位异或操作，根据结果设置条件标志位，但不保存结果。用于测试两个值是否相等。</p>
+<p><strong>语法</strong></p>
+<p>TEQ{条件} 操作数1, 操作数2</p>
+<p><strong>实例</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">TEQ R1, R2 ; 测试寄存器R1和R2的值是否相等</span><br></pre></td></tr></table></figure>
+
+<h4 id="CMP（Compare）指令"><a href="#CMP（Compare）指令" class="headerlink" title="CMP（Compare）指令"></a>CMP（Compare）指令</h4><p><strong>功能</strong></p>
+<p>用操作数 1 减去操作数 2，根据结果设置条件标志位，但不保存结果。用于比较两个值的大小。</p>
+<p><strong>语法</strong></p>
+<p>CMP{条件} 操作数1, 操作数2</p>
+<p><strong>实例</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">CMP R1, R2 ; 比较寄存器R1和R2的值大小</span><br></pre></td></tr></table></figure>
+
+<h4 id="CMN（Compare-Negative）指令"><a href="#CMN（Compare-Negative）指令" class="headerlink" title="CMN（Compare Negative）指令"></a>CMN（Compare Negative）指令</h4><p><strong>功能</strong></p>
+<p>将操作数 1 与操作数 2 的相反数相加，根据结果设置条件标志位，但不保存结果。用于比较操作数 1 与操作数 2 的相反数的关系。</p>
+<p><strong>语法</strong></p>
+<p>CMN{条件} 操作数1, 操作数2</p>
+<p><strong>实例</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">CMN R1, R2 ; 比较R1和 -R2的关系</span><br></pre></td></tr></table></figure>
+
+<h4 id="ORR（Logical-OR）指令"><a href="#ORR（Logical-OR）指令" class="headerlink" title="ORR（Logical OR）指令"></a>ORR（Logical OR）指令</h4><p><strong>功能</strong></p>
+<p>对两个操作数进行按位或操作，结果存放到目标寄存器。常用于设置某些位。</p>
+<p><strong>语法</strong></p>
+<p>ORR{条件}{S} 目标寄存器, 操作数1, 操作数2</p>
+<p><strong>实例</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ORR R21, R1, R2 ; 将寄存器R1和R2的值按位或，结果存到R21</span><br><span class="line">ORR R22, R1, #0x0F ; 将寄存器R1的值与立即数0x0F按位或，结果存到R22</span><br></pre></td></tr></table></figure>
+
+<h4 id="BIC（Bit-Clear）指令"><a href="#BIC（Bit-Clear）指令" class="headerlink" title="BIC（Bit Clear）指令"></a>BIC（Bit Clear）指令</h4><p><strong>功能</strong></p>
+<p>将操作数 1 与操作数 2 的反码进行按位与操作，结果存放到目标寄存器。用于清除某些位。</p>
+<p><strong>语法</strong></p>
+<p>BIC{条件}{S} 目标寄存器, 操作数1, 操作数2</p>
+<p><strong>实例</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">BIC R23, R1, #0x0F ; 清除寄存器R1的低4位，结果存到R23</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-乘法指令："><a href="#2-乘法指令：" class="headerlink" title="2.乘法指令："></a>2.乘法指令：</h3><h4 id="MUL（Multiply）"><a href="#MUL（Multiply）" class="headerlink" title="MUL（Multiply）"></a>MUL（Multiply）</h4><p><strong>功能</strong>：将两个 32 位寄存器中的值相乘，结果的低 32 位存放到目标寄存器中。</p>
+<p><strong>语法</strong>：MUL{条件}{S} 目标寄存器, 操作数1, 操作数2</p>
+<p><strong>实例</strong>：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">MUL R11, R1, R2 ; 将寄存器R1和R2的值相乘，结果的低32位存放到寄存器R11中</span><br></pre></td></tr></table></figure>
+
+<h4 id="MLA（Multiply-Accumulate）"><a href="#MLA（Multiply-Accumulate）" class="headerlink" title="MLA（Multiply-Accumulate）"></a>MLA（Multiply-Accumulate）</h4><p><strong>功能</strong>：将两个 32 位寄存器中的值相乘，再加上第三个寄存器的值，结果的低 32 位存放到目标寄存器中。</p>
+<p><strong>语法</strong>：MLA{条件}{S} 目标寄存器, 操作数1, 操作数2, 操作数3</p>
+<p><strong>实例</strong>：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">MLA R12, R1, R2, R3 ;计算(R1 * R2)+R3，结果的低32位存放到寄存器R12中</span><br></pre></td></tr></table></figure>
+
+<h4 id="UMULL（Unsigned-Multiply-Long）"><a href="#UMULL（Unsigned-Multiply-Long）" class="headerlink" title="UMULL（Unsigned Multiply Long）"></a>UMULL（Unsigned Multiply Long）</h4><p><strong>功能</strong>：将两个 32 位无符号整数相乘，产生一个 64 位的无符号结果，分别存放在两个 32 位寄存器中（结果的低 32 位存于目标寄存器，高 32 位存于另一个指定寄存器）。</p>
+<p><strong>语法</strong>：UMULL{条件}{S} 目标寄存器Lo, 目标寄存器Hi, 操作数1, 操作数2</p>
+<p><strong>实例</strong>：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">UMULL R13, R14, R1, R2 ; R1和R2相乘，结果低<span class="number">32</span>位存于R13，高<span class="number">32</span>位存于R14</span><br></pre></td></tr></table></figure>
+
+<h4 id="UMLAL（Unsigned-Multiply-Accumulate-Long）"><a href="#UMLAL（Unsigned-Multiply-Accumulate-Long）" class="headerlink" title="UMLAL（Unsigned Multiply-Accumulate Long）"></a>UMLAL（Unsigned Multiply-Accumulate Long）</h4><p><strong>功能</strong>：将两个 32 位无符号整数相乘，然后将结果与两个 64 位寄存器（由目标寄存器 Lo 和目标寄存器 Hi 组成）中的值相加，结果的低 64 位重新存回这两个寄存器。</p>
+<p><strong>语法</strong>：UMLAL{条件}{S} 目标寄存器Lo, 目标寄存器Hi, 操作数1, 操作数2</p>
+<p><strong>实例</strong>：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">;假设R15:R16组成一个<span class="number">64</span>位值</span><br><span class="line">UMLAL R15, R16, R1, R2 ; (R1 * R2)+(R15:R16)，结果低<span class="number">64</span>位存回R15:R16</span><br></pre></td></tr></table></figure>
+
+<h4 id="SMULL（Signed-Multiply-Long）"><a href="#SMULL（Signed-Multiply-Long）" class="headerlink" title="SMULL（Signed Multiply Long）"></a>SMULL（Signed Multiply Long）</h4><p><strong>功能</strong>：将两个 32 位有符号整数相乘，产生一个 64 位的有符号结果，分别存放在两个 32 位寄存器中（结果的低 32 位存于目标寄存器，高 32 位存于另一个指定寄存器）。</p>
+<p><strong>语法</strong>：SMULL{条件}{S} 目标寄存器Lo, 目标寄存器Hi, 操作数1, 操作数2</p>
+<p><strong>实例</strong>：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SMULL R17, R18, R1, R2 ; R1和R2有符号相乘，结果低<span class="number">32</span>位存于R17，高<span class="number">32</span>位存于R18</span><br></pre></td></tr></table></figure>
+
+<h4 id="SMLAL（Signed-Multiply-Accumulate-Long）"><a href="#SMLAL（Signed-Multiply-Accumulate-Long）" class="headerlink" title="SMLAL（Signed Multiply-Accumulate Long）"></a>SMLAL（Signed Multiply-Accumulate Long）</h4><p><strong>功能</strong>：将两个 32 位有符号整数相乘，然后将结果与两个 64 位寄存器（由目标寄存器 Lo 和目标寄存器 Hi 组成）中的值相加，结果的低 64 位重新存回这两个寄存器。</p>
+<p><strong>语法</strong>：SMLAL{条件}{S} 目标寄存器Lo, 目标寄存器Hi, 操作数1, 操作数2</p>
+<p><strong>实例</strong>：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">;假设R19:R20组成一个<span class="number">64</span>位有符号值</span><br><span class="line">SMLAL R19, R20, R1, R2 ; (R1 * R2)+(R19:R20)，结果低<span class="number">64</span>位存回R19:R20</span><br></pre></td></tr></table></figure>
+
+<h2 id="3-Load-Store指令："><a href="#3-Load-Store指令：" class="headerlink" title="3.Load&#x2F;Store指令："></a>3.Load&#x2F;Store指令：</h2><h4 id="LDR（Load-Register）指令"><a href="#LDR（Load-Register）指令" class="headerlink" title="LDR（Load Register）指令"></a>LDR（Load Register）指令</h4><p><strong>功能</strong></p>
+<p><strong>从内存中读取一个字（32 位）数据到寄存器。</strong></p>
+<p><strong>语法</strong></p>
+<p><strong>LDR{条件} 目标寄存器, [基址寄存器{, 偏移量}]</strong></p>
+<p><strong>实例</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">LDR R1, [R0]         ; 从R0指向的内存地址读取一个字数据到R1</span><br><span class="line">LDR R2, [R0, #4]     ; 从R0 + 4指向的内存地址读取一个字数据到R2</span><br></pre></td></tr></table></figure>
+
+<h4 id="STR（Store-Register）指令"><a href="#STR（Store-Register）指令" class="headerlink" title="STR（Store Register）指令"></a>STR（Store Register）指令</h4><p><strong>功能</strong></p>
+<p><strong>将寄存器中的一个字（32 位）数据存储到内存中。</strong></p>
+<p><strong>语法</strong></p>
+<p><strong>STR{条件} 源寄存器, [基址寄存器{, 偏移量}]</strong></p>
+<p><strong>实例</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">STR R3, [R0]         ; 将R3中的数据存储到R0指向的内存地址</span><br><span class="line">STR R4, [R0, #8]     ; 将R4中的数据存储到R0 + 8指向的内存地址</span><br></pre></td></tr></table></figure>
+
+<h4 id="LDRB（Load-Register-Byte）指令"><a href="#LDRB（Load-Register-Byte）指令" class="headerlink" title="LDRB（Load Register Byte）指令"></a>LDRB（Load Register Byte）指令</h4><p><strong>功能</strong></p>
+<p><strong>从内存中读取一个字节（8 位）数据到寄存器，数据自动进行零扩展到 32 位。</strong></p>
+<p><strong>语法</strong></p>
+<p><strong>LDRB{条件} 目标寄存器, [基址寄存器{, 偏移量}]</strong></p>
+<p><strong>实例</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">LDRB R5, [R0]        ; 从R0指向的内存地址读取一个字节数据到R5，并零扩展</span><br><span class="line">LDRB R6, [R0, #1]    ; 从R0 + 1指向的内存地址读取一个字节数据到R6，并零扩展</span><br></pre></td></tr></table></figure>
+
+<h4 id="STRB（Store-Register-Byte）指令"><a href="#STRB（Store-Register-Byte）指令" class="headerlink" title="STRB（Store Register Byte）指令"></a>STRB（Store Register Byte）指令</h4><p><strong>功能</strong></p>
+<p><strong>将寄存器中的低 8 位数据存储到内存中。</strong></p>
+<p><strong>语法</strong></p>
+<p><strong>STRB{条件} 源寄存器, [基址寄存器{, 偏移量}]</strong></p>
+<p><strong>实例</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">STRB R7, [R0]        ; 将R7的低8位数据存储到R0指向的内存地址</span><br><span class="line">STRB R8, [R0, #2]    ; 将R8的低8位数据存储到R0 + 2指向的内存地址</span><br></pre></td></tr></table></figure>
+
+<h4 id="LDRH（Load-Register-Halfword）指令"><a href="#LDRH（Load-Register-Halfword）指令" class="headerlink" title="LDRH（Load Register Halfword）指令"></a>LDRH（Load Register Halfword）指令</h4><p><strong>功能</strong></p>
+<p><strong>从内存中读取一个半字（16 位）数据到寄存器，数据自动进行零扩展到 32 位。</strong></p>
+<p><strong>语法</strong></p>
+<p><strong>LDRH{条件} 目标寄存器, [基址寄存器{, 偏移量}]</strong></p>
+<p><strong>实例</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">LDRH R9, [R0]        ; 从R0指向的内存地址读取一个半字数据到R9，并零扩展</span><br><span class="line">LDRH R10, [R0, #2]   ; 从R0 + 2指向的内存地址读取一个半字数据到R10，并零扩展</span><br></pre></td></tr></table></figure>
+
+<h4 id="STRH（Store-Register-Halfword）指令"><a href="#STRH（Store-Register-Halfword）指令" class="headerlink" title="STRH（Store Register Halfword）指令"></a>STRH（Store Register Halfword）指令</h4><p><strong>功能</strong></p>
+<p><strong>将寄存器中的低 16 位数据存储到内存中。</strong></p>
+<p><strong>语法</strong></p>
+<p><strong>STRH{条件} 源寄存器, [基址寄存器{, 偏移量}]</strong></p>
+<p><strong>实例</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">STRH R11, [R0]       ; 将R11的低16位数据存储到R0指向的内存地址</span><br><span class="line">STRH R12, [R0, #4]   ; 将R12的低16位数据存储到R0 + 4指向的内存地址</span><br></pre></td></tr></table></figure>
+
+<h4 id="LDRBT（Load-Register-Byte-Thumb）指令"><a href="#LDRBT（Load-Register-Byte-Thumb）指令" class="headerlink" title="LDRBT（Load Register Byte, Thumb）指令"></a>LDRBT（Load Register Byte, Thumb）指令</h4><p><strong>功能</strong></p>
+<p><strong>在 Thumb 状态下，从内存中读取一个字节（8 位）数据到寄存器，数据自动进行零扩展到 32 位。</strong></p>
+<p><strong>语法</strong></p>
+<p><strong>LDRBT{条件} 目标寄存器, [基址寄存器{, 偏移量}]</strong></p>
+<p><strong>实例</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">LDRBT R13, [R0]      ; 在Thumb状态下，从R0指向的内存地址读取一个字节数据到R13，并零扩展</span><br><span class="line">LDRBT R14, [R0, #3]  ; 在Thumb状态下，从R0 + 3指向的内存地址读取一个字节数据到R14，并零扩展</span><br></pre></td></tr></table></figure>
+
+<h4 id="STRBT（Store-Register-Byte-Thumb）指令"><a href="#STRBT（Store-Register-Byte-Thumb）指令" class="headerlink" title="STRBT（Store Register Byte, Thumb）指令"></a>STRBT（Store Register Byte, Thumb）指令</h4><p><strong>功能</strong></p>
+<p><strong>在 Thumb 状态下，将寄存器中的低 8 位数据存储到内存中。</strong></p>
+<p><strong>语法</strong></p>
+<p><strong>STRBT{条件} 源寄存器, [基址寄存器{, 偏移量}]</strong></p>
+<p><strong>实例</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">STRBT R15, [R0]      ; 在Thumb状态下，将R15的低8位数据存储到R0指向的内存地址</span><br><span class="line">STRBT R16, [R0, #1]  ; 在Thumb状态下，将R16的低8位数据存储到R0 + 1指向的内存地址</span><br></pre></td></tr></table></figure>
+
+<h4 id="LDRT（Load-Register-Thumb）指令"><a href="#LDRT（Load-Register-Thumb）指令" class="headerlink" title="LDRT（Load Register, Thumb）指令"></a>LDRT（Load Register, Thumb）指令</h4><p><strong>功能</strong></p>
+<p><strong>在 Thumb 状态下，从内存中读取一个字（32 位）数据到寄存器。</strong></p>
+<p><strong>语法</strong></p>
+<p><strong>LDRT{条件} 目标寄存器, [基址寄存器{, 偏移量}]</strong></p>
+<p><strong>实例</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">LDRT R17, [R0]       ; 在Thumb状态下，从R0指向的内存地址读取一个字数据到R17</span><br><span class="line">LDRT R18, [R0, #4]   ; 在Thumb状态下，从R0 + 4指向的内存地址读取一个字数据到R18</span><br></pre></td></tr></table></figure>
+
+<h4 id="STRT（Store-Register-Thumb）指令"><a href="#STRT（Store-Register-Thumb）指令" class="headerlink" title="STRT（Store Register, Thumb）指令"></a>STRT（Store Register, Thumb）指令</h4><p><strong>功能</strong></p>
+<p><strong>在 Thumb 状态下，将寄存器中的一个字（32 位）数据存储到内存中。</strong></p>
+<p><strong>语法</strong></p>
+<p><strong>STRT{条件} 源寄存器, [基址寄存器{, 偏移量}]</strong></p>
+<p><strong>实例</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">STRT R19, [R0]       ; 在Thumb状态下，将R19中的数据存储到R0指向的内存地址</span><br><span class="line">STRT R20, [R0, #8]   ; 在Thumb状态下，将R20中的数据存储到R0 + 8指向的内存地址</span><br></pre></td></tr></table></figure>
+
+<h4 id="LDRSB（Load-Register-Signed-Byte）指令"><a href="#LDRSB（Load-Register-Signed-Byte）指令" class="headerlink" title="LDRSB（Load Register Signed Byte）指令"></a>LDRSB（Load Register Signed Byte）指令</h4><p><strong>功能</strong></p>
+<p><strong>从内存中读取一个字节（8 位）数据到寄存器，数据自动进行符号扩展到 32 位。</strong></p>
+<p><strong>语法</strong></p>
+<p><strong>LDRSB{条件} 目标寄存器, [基址寄存器{, 偏移量}]</strong></p>
+<p><strong>实例</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">LDRSB R21, [R0]      ; 从R0指向的内存地址读取一个字节数据到R21，并符号扩展</span><br><span class="line">LDRSB R22, [R0, #2]  ; 从R0 + 2指向的内存地址读取一个字节数据到R22，并符号扩展</span><br></pre></td></tr></table></figure>
+
+<h4 id="LDRSH（Load-Register-Signed-Halfword）指令"><a href="#LDRSH（Load-Register-Signed-Halfword）指令" class="headerlink" title="LDRSH（Load Register Signed Halfword）指令"></a>LDRSH（Load Register Signed Halfword）指令</h4><p><strong>功能</strong></p>
+<p><strong>从内存中读取一个半字（16 位）数据到寄存器，数据自动进行符号扩展到 32 位。</strong></p>
+<p><strong>语法</strong></p>
+<p><strong>LDRSH{条件} 目标寄存器, [基址寄存器{, 偏移量}]</strong></p>
+<p><strong>实例</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">LDRSH R23, [R0]      ; 从R0指向的内存地址读取一个半字数据到R23，并符号扩展</span><br><span class="line">LDRSH R24, [R0, #2]  ; 从R0 + 2指向的内存地址读取一个半字数据到R24，并符号扩展</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-跳转指令："><a href="#4-跳转指令：" class="headerlink" title="4.跳转指令："></a>4.跳转指令：</h3><h4 id="B（Branch）指令"><a href="#B（Branch）指令" class="headerlink" title="B（Branch）指令"></a>B（Branch）指令</h4><p><strong>功能</strong></p>
+<p><strong>无条件跳转到指定的地址执行，实现程序执行流程的改变。</strong></p>
+<p><strong>语法</strong></p>
+<p><strong>B{条件} 目标地址</strong></p>
+<p><strong>实例</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">B Label  ; 无条件跳转到Label标签处执行</span><br><span class="line">; 示例代码</span><br><span class="line">    MOV R1, #10</span><br><span class="line">    B End</span><br><span class="line">    MOV R2, #20  ; 这行代码不会被执行</span><br><span class="line">End:</span><br><span class="line">    MOV R3, #30</span><br></pre></td></tr></table></figure>
+
+<h4 id="BL（Branch-with-Link）指令"><a href="#BL（Branch-with-Link）指令" class="headerlink" title="BL（Branch with Link）指令"></a>BL（Branch with Link）指令</h4><p><strong>功能</strong></p>
+<p><strong>跳转到指定的地址执行，并将下一条指令的地址保存到链接寄存器 LR（R14）中，常用于子程序调用，以便后续能返回原程序执行。</strong></p>
+<p><strong>语法</strong></p>
+<p><strong>BL{条件} 目标地址</strong></p>
+<p><strong>实例</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">BL Subroutine  ; 跳转到Subroutine子程序执行，并保存返回地址到LR</span><br><span class="line">; 示例代码</span><br><span class="line">    MOV R1, #10</span><br><span class="line">    BL Subroutine</span><br><span class="line">    MOV R3, #30</span><br><span class="line">    B End</span><br><span class="line"></span><br><span class="line">Subroutine:</span><br><span class="line">    MOV R2, #20</span><br><span class="line">    MOV PC, LR  ; 从子程序返回</span><br><span class="line">End:</span><br><span class="line">    ; 程序结束</span><br></pre></td></tr></table></figure>
+
+<h4 id="BX（Branch-and-Exchange）指令"><a href="#BX（Branch-and-Exchange）指令" class="headerlink" title="BX（Branch and Exchange）指令"></a>BX（Branch and Exchange）指令</h4><p><strong>功能</strong></p>
+<p><strong>跳转到目标寄存器所指向的地址执行，并且根据目标地址的最低位来决定处理器状态的切换。若最低位为 1，处理器切换到 Thumb 状态执行；若为 0，则在 ARM 状态执行。</strong></p>
+<p><strong>语法</strong></p>
+<p><strong>BX{条件} 目标寄存器</strong></p>
+<p><strong>实例</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">; 假设R4中存储了一个地址，该地址处代码为Thumb指令</span><br><span class="line">BX R4</span><br></pre></td></tr></table></figure>
+
+<h4 id="BLX（Branch-with-Link-and-Exchange）指令"><a href="#BLX（Branch-with-Link-and-Exchange）指令" class="headerlink" title="BLX（Branch with Link and Exchange）指令"></a>BLX（Branch with Link and Exchange）指令</h4><p><strong>功能</strong></p>
+<p><strong>兼具 BL 和 BX 的功能，跳转到指定地址执行，同时将返回地址保存到链接寄存器 LR 中，并根据目标地址的最低位决定处理器状态是否切换。</strong></p>
+<p><strong>语法</strong></p>
+<p><strong>BLX{条件} 目标寄存器</strong> <strong>或</strong> <strong>BLX{条件} 目标地址</strong></p>
+<p><strong>实例</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">; 假设R5中存储了一个地址，跳转到该地址执行并保存返回地址到LR，根据地址最低位切换状态</span><br><span class="line">BLX R5</span><br><span class="line">BLX 0x12345679  ; 跳转到0x12345679地址执行，保存返回地址到LR，根据地址最低位切换状态</span><br></pre></td></tr></table></figure>
+
+<h3 id="5-状态操作指令："><a href="#5-状态操作指令：" class="headerlink" title="5.状态操作指令："></a>5.状态操作指令：</h3><h4 id="MRS（Move-to-Register-from-Status-register）指令"><a href="#MRS（Move-to-Register-from-Status-register）指令" class="headerlink" title="MRS（Move to Register from Status register）指令"></a>MRS（Move to Register from Status register）指令</h4><p><strong>功能</strong></p>
+<p><strong>将程序状态寄存器（CPSR 或 SPSR）的值传送到通用寄存器。通过该指令可获取处理器当前的状态信息，比如标志位状态、处理器模式等，方便后续程序根据这些状态进行相应处理。</strong></p>
+<p><strong>语法</strong></p>
+<p><strong>MRS{条件} 目标寄存器, 程序状态寄存器</strong></p>
+<p><strong>实例</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">MRS R16, CPSR  ; 将当前程序状态寄存器CPSR的值传送到寄存器R16</span><br><span class="line">MRS R17, SPSR  ; 将备份程序状态寄存器SPSR的值传送到寄存器R17</span><br></pre></td></tr></table></figure>
+
+<h4 id="MSR（Move-to-Status-register-from-Register）指令"><a href="#MSR（Move-to-Status-register-from-Register）指令" class="headerlink" title="MSR（Move to Status register from Register）指令"></a>MSR（Move to Status register from Register）指令</h4><p><strong>功能</strong></p>
+<p><strong>将通用寄存器或立即数的值传送到程序状态寄存器（CPSR 或 SPSR）。利用此指令能够修改处理器的状态，像设置或清除标志位、切换处理器运行模式等。不过，对程序状态寄存器的写入操作有严格的权限限制，通常只有在特权模式下才能执行某些关键状态的修改。</strong></p>
+<p><strong>语法</strong></p>
+<p><strong>MSR{条件} 程序状态寄存器{域}, 源操作数</strong></p>
+<p><strong>实例</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">MSR CPSR_c, #0x1F  ; 将立即数0x1F传送到CPSR的控制域（c域），可用于切换处理器模式</span><br><span class="line">MOV R18, #0x01</span><br><span class="line">MSR SPSR_f, R18   ; 将寄存器R18的值传送到SPSR的标志域（f域）</span><br></pre></td></tr></table></figure>
+
+<p>6.协处理器指令：</p>
+<p>7.异常指令：</p>
+<p>8.其他指令：</p>
+<h2 id="十五、ARM汇编语言程序设计"><a href="#十五、ARM汇编语言程序设计" class="headerlink" title="十五、ARM汇编语言程序设计"></a>十五、ARM汇编语言程序设计</h2><h3 id="1-汇编伪操作"><a href="#1-汇编伪操作" class="headerlink" title="1.汇编伪操作"></a>1.汇编伪操作</h3><h3 id="2-伪指令"><a href="#2-伪指令" class="headerlink" title="2.伪指令"></a>2.伪指令</h3><h3 id="3-汇编与C的混合编程"><a href="#3-汇编与C的混合编程" class="headerlink" title="3.汇编与C的混合编程"></a>3.汇编与C的混合编程</h3><h2 id="十六、ARM开发环境搭建"><a href="#十六、ARM开发环境搭建" class="headerlink" title="十六、ARM开发环境搭建"></a>十六、ARM开发环境搭建</h2><h2 id="十七、GPIO"><a href="#十七、GPIO" class="headerlink" title="十七、GPIO"></a>十七、GPIO</h2>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/ARM%E5%A4%84%E7%90%86%E5%99%A8%E5%BC%80%E5%8F%91/" data-id="cm7wpxmms0000lwvvenk397l7" data-title="ARM处理器开发" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      <a data-url="http://example.com/ARM%E5%A4%84%E7%90%86%E5%99%A8%E5%BC%80%E5%8F%91/" data-id="cm84nbh4e0000covvdz0d6wse" data-title="ARM处理器开发" class="article-share-link"><span class="fa fa-share">分享</span></a>
       
       
       
@@ -518,7 +953,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/%E4%BB%8E0%E6%90%AD%E5%BB%BA%E8%AE%A1%E7%AE%97%E6%9C%BA/" data-id="cm7wpxmnb0002lwvv3msq4476" data-title="从0搭建计算机" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      <a data-url="http://example.com/%E4%BB%8E0%E6%90%AD%E5%BB%BA%E8%AE%A1%E7%AE%97%E6%9C%BA/" data-id="cm84nbh4j0001covv12xgbtsm" data-title="从0搭建计算机" class="article-share-link"><span class="fa fa-share">分享</span></a>
       
       
       
@@ -695,7 +1130,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/%E5%8D%9A%E5%AE%A2%E7%BD%91%E7%AB%99%E7%AE%A1%E7%90%86/" data-id="cm7wpxmn70001lwvv0r4c5vbx" data-title="博客网站管理" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      <a data-url="http://example.com/%E5%8D%9A%E5%AE%A2%E7%BD%91%E7%AB%99%E7%AE%A1%E7%90%86/" data-id="cm84nbh4s0003covv0cdr94o2" data-title="博客网站管理" class="article-share-link"><span class="fa fa-share">分享</span></a>
       
       
       
@@ -733,7 +1168,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/%E5%8D%9A%E5%AE%A2%E4%BB%8B%E7%BB%8D/" data-id="cm7wpxmno0003lwvv4s4m9v13" data-title="博客介绍" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      <a data-url="http://example.com/%E5%8D%9A%E5%AE%A2%E4%BB%8B%E7%BB%8D/" data-id="cm84nbh4l0002covvc8n50pls" data-title="博客介绍" class="article-share-link"><span class="fa fa-share">分享</span></a>
       
       
       
